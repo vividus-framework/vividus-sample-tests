@@ -1,0 +1,15 @@
+project.description = 'Sample tests demoing VIVIDUS capabilities'
+group = 'org.vividus.demo'
+
+ext.buildSystemPath = "${System.env.VIVIDUS_BUILD_SYSTEM_HOME?:buildSystemRootDir}/${buildSystemVersion}"
+ext.buildSystemDir = file("${buildSystemPath}")
+
+apply from: "${buildSystemPath}/vividus-test-project.gradle"
+
+ext {
+    vividusVersion = '0.4.5'
+}
+
+dependencies {
+    implementation(group: 'org.vividus', name: 'vividus', version: vividusVersion)
+}
