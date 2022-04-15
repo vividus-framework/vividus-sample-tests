@@ -23,5 +23,22 @@ jobs:
         java-version: 17
         cache: 'gradle'
 
-    - name: Run tests
-      run: ./gradlew runStories
+    - name: Run REST API tests
+      run: ./gradlew runStories -Pvividus.configuration.suites=rest_api
+
+    - name: Publish REST API tests report
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: REST API tests report
+        path: output/reports/allure
+
+    - name: Run web application tests
+      run: ./gradlew runStories -Pvividus.configuration.suites=web_app -Pvividus.configuration.profiles=web/headless/chrome
+
+    - name: Publish web application tests report
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: Web application tests report
+        path: output/reports/allure
