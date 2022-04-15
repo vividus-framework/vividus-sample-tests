@@ -1,0 +1,27 @@
+name: Demo Test Run
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '30 4 * * MON-FRI'
+
+jobs:
+  test-run:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout (including submodules)
+      uses: actions/checkout@v3
+      with:
+        submodules: recursive
+
+    - name: Set up JDK
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: 17
+        cache: 'gradle'
+
+    - name: Run tests
+      run: ./gradlew runStories
