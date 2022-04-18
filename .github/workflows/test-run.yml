@@ -15,6 +15,14 @@ jobs:
       uses: actions/checkout@v3
       with:
         submodules: recursive
+        
+    - name: Cache tests history
+      uses: pat-s/always-upload-cache@v3.0.1
+      with:
+        path: output/history
+        key: tests-history-cache
+        restore-keys: |
+          tests-history-cache
 
     - name: Set up JDK
       uses: actions/setup-java@v3
@@ -24,7 +32,9 @@ jobs:
         cache: 'gradle'
 
     - name: Run REST API tests
-      run: ./gradlew runStories -Pvividus.configuration.suites=rest_api
+      run: |
+        ./gradlew runStories -Pvividus.configuration.suites=rest_api \
+                             -Pvividus.allure.history-directory=output/history/rest-api-tests
 
     - name: Publish REST API tests report
       if: always()
@@ -34,7 +44,10 @@ jobs:
         path: output/reports/allure
 
     - name: Run web application tests
-      run: ./gradlew runStories -Pvividus.configuration.suites=web_app -Pvividus.configuration.profiles=web/headless/chrome
+      run: |
+        ./gradlew runStories -Pvividus.configuration.suites=web_app \
+                             -Pvividus.configuration.profiles=web/headless/chrome \
+                             -Pvividus.allure.history-directory=output/history/web-app-tests
 
     - name: Publish web application tests report
       if: always()
