@@ -1,0 +1,67 @@
+image: openjdk:17.0.2-slim
+stages:
+  - build
+  - test
+
+variables:
+  OUT: .out
+  HISTORY: $OUT/$CI_PROJECT_NAME/history
+  GIT_SUBMODULE_STRATEGY: recursive
+  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+
+before_script:
+  - export OUTPUT_ROOT=`pwd`/$OUT
+  - export GRADLE_USER_HOME=$OUTPUT_ROOT/.gradle
+
+cache:
+  key: one-key-to-rule-them-all
+  paths:
+    - $OUT/.gradle/wrapper
+    - $OUT/.gradle/caches
+
+
+build:
+  stage: build
+  script:
+    - ./gradlew build
+
+api:
+  stage: test
+  script:
+    - ./gradlew debugStories -Pvividus.configuration.suites=rest_api -Pvividus.allure.history-directory=$HISTORY/rest-api-tests
+  cache:
+    key: "$CI_JOB_NAME-$CI_JOB_STAGE"
+    paths:
+       - $HISTORY
+    when: always
+  artifacts:
+    when: always
+    name: REST API tests report
+    paths:
+      - $OUT/$CI_PROJECT_NAME/reports/allure/
+    expire_in: 1 week
+
+e2e:chrome:
+  stage: test
+  services:
+    - selenium/standalone-chrome
+  script:
+    - |
+      ./gradlew debugStories -Pvividus.configuration.suites=web_app \
+                             -Pvividus.configuration.profiles=web/headless/chrome \
+                             -Pvividus.selenium.grid.enabled=true \
+                             -Pvividus.selenium.grid.url=http://selenium-standalone-chrome:4444/wd/hub \
+                             -Pvividus.selenium.grid.capabilities.platformName=linux \
+                             -Pvividus.selenium.grid.capabilities.browserName=chrome \
+                             -Pvividus.allure.history-directory=$HISTORY/web-app-tests
+  cache:
+    key: "$CI_JOB_NAME-$CI_JOB_STAGE"
+    paths:
+       - $HISTORY
+    when: always
+  artifacts:
+    when: always
+    name: Web application tests report
+    paths:
+      - $OUT/$CI_PROJECT_NAME/reports/allure/
+    expire_in: 1 week

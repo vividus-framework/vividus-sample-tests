@@ -78,6 +78,12 @@ The purpose of this repository is to help users start creating automated tests u
     ```
 1. Launch a browser, type `localhost:3456` into the URL. If you followed the instructions properly, you should see your report.
 
+## How to run tests in CI
+### GitHub Actions
+Example of [GitHub Actions configuration](https://github.com/vividus-framework/vividus-sample-tests/blob/main/.github/workflows/test-run.yml). Example of [tests executions](https://github.com/vividus-framework/vividus-sample-tests/actions/workflows/test-run.yml).
+
+### GitLab CI
+Example of [GitLab CI configuration](https://github.com/vividus-framework/vividus-sample-tests/blob/main/.gitlab-ci.yml). Example of [tests executions](https://gitlab.com/vividus/vividus-sample-tests/-/pipelines).
 
 ## Support
 [**Slack Channel**](https://vividus-support.herokuapp.com/)
