@@ -1,0 +1,92 @@
+name: Mobile Demo Test Run
+
+env:
+  ANDROID_EMU_NAME: test
+  ANDROID_EMU_ABI: x86
+  ANDROID_EMU_TARGET: android-29
+  ANDROID_EMU_TAG: default
+
+on:
+  schedule:
+    - cron: '30 4 * * MON-FRI'
+
+jobs:
+  mobile-test-run:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        platform: [Android, iOS]
+      fail-fast: false
+
+    steps:
+    - name: Checkout (including submodules)
+      uses: actions/checkout@v3
+      with:
+        submodules: recursive
+        
+    - name: Cache tests history
+      uses: pat-s/always-upload-cache@v3.0.1
+      with:
+        path: output/history
+        key: tests-history-cache
+        restore-keys: |
+          tests-history-cache
+
+    - name: Spin-up Android emulator
+      if: matrix.platform == 'Android'
+      run: |
+        echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install "system-images;$ANDROID_EMU_TARGET;$ANDROID_EMU_TAG;$ANDROID_EMU_ABI"
+        echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n "$ANDROID_EMU_NAME" -k "system-images;$ANDROID_EMU_TARGET;$ANDROID_EMU_TAG;$ANDROID_EMU_ABI" --force
+        echo $ANDROID_HOME/emulator/emulator -list-avds
+        echo "Starting emulator"
+        nohup $ANDROID_HOME/emulator/emulator -avd "$ANDROID_EMU_NAME" -no-snapshot -delay-adb > /dev/null 2>&1 &
+        $ANDROID_HOME/platform-tools/adb wait-for-device
+        $ANDROID_HOME/platform-tools/adb devices -l
+        echo "Emulator started"
+
+    - name: Set up JDK
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: 17
+        cache: 'gradle'
+
+    - name: Install node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+    
+    - name: Install Appium
+      run: npm i -g appium
+
+    - name: Start appium server
+      run: appium --relaxed-security --log-timestamp --log appium.log &
+  
+    - name: Run iOS tests
+      if: matrix.platform == 'iOS'
+      run: |
+        ./gradlew runStories -Pvividus.configuration.suites=mobile_app/ios \
+                             -Pvividus.configuration.profiles=mobile_app/local,mobile_app/ios \
+                             -Pvividus.allure.history-directory=output/history/ios \
+                             -Pvividus.selenium.grid.capabilities.showXcodeLog=true \
+                             -Pvividus.selenium.grid.capabilities.wdaLaunchTimeout=300000 \
+                             -Pvividus.selenium.grid.capabilities.isHeadless=true
+
+    - name: Run Android tests
+      if: matrix.platform == 'Android'
+      run: |
+        ./gradlew runStories -Pvividus.configuration.suites=mobile_app/android \
+                             -Pvividus.configuration.profiles=mobile_app/local,mobile_app/android \
+                             -Pvividus.allure.history-directory=output/history/android \
+                             -Pvividus.selenium.grid.capabilities.deviceName="$ANDROID_EMU_NAME"
+
+    - name: Publish ${{ matrix.platform }} tests report
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ matrix.platform }} tests report
+        path: output/reports/allure
+
+    - name: Print appium logs
+      if: always()
+      run: cat ./appium.log
