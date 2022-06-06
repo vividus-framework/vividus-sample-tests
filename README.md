@@ -10,7 +10,7 @@ The instructions on how to run tests can be found in the official ["Getting Star
 
 |CI            |Configuration sample                                                                                              |Test execution based on sample configuration                                                             |
 |--------------|------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|GitHub Actions|[test-run.yml](https://github.com/vividus-framework/vividus-sample-tests/blob/main/.github/workflows/test-run.yml)|[Workflow runs](https://github.com/vividus-framework/vividus-sample-tests/actions/workflows/test-run.yml)|
+|GitHub Actions|[test-run.yml](https://github.com/vividus-framework/vividus-sample-tests/blob/main/.github/workflows/test-run.yml), [mobile-test-run.yml](https://github.com/vividus-framework/vividus-sample-tests/blob/main/.github/workflows/mobile-test-run.yml)|[Workflow runs](https://github.com/vividus-framework/vividus-sample-tests/actions/workflows/test-run.yml), [Mobile Workflow runs](https://github.com/vividus-framework/vividus-sample-tests/actions/workflows/mobile-test-run.yml)|
 |GitLab CI     |[.gitlab-ci.yml](https://github.com/vividus-framework/vividus-sample-tests/blob/main/.gitlab-ci.yml)              |[Pipeline runs](https://gitlab.com/vividus/vividus-sample-tests/-/pipelines)                             |
 
 ## Still have questions?

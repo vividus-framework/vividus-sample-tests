@@ -15,4 +15,5 @@ dependencies {
     implementation(group: 'org.vividus', name: 'vividus-plugin-rest-api', version: vividusVersion)
     implementation(group: 'org.vividus', name: 'vividus-plugin-json', version: vividusVersion)
     implementation(group: 'org.vividus', name: 'vividus-plugin-web-app', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-plugin-mobile-app', version: vividusVersion)
 }
