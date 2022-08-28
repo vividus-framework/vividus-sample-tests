@@ -7,6 +7,7 @@ env:
   ANDROID_EMU_TAG: default
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '30 4 * * MON-FRI'
 
