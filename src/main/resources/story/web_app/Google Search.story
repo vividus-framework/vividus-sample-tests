@@ -11,4 +11,4 @@ Given I am on a page with the URL 'https://www.google.com/'
 When I enter `VIVIDUS test automation` in field located `<search-input-field>`
 When I wait until element located `<search-button>` appears
 When I click on element located `<search-button>`
-Then number of elements found by `linkUrlPart(https://docs.vividus.dev/vividus/)` is equal to `1`
+Then number of elements found by `linkUrlPart(https://docs.vividus.dev/vividus/)->filter.caseSensitiveText(What is VIVIDUS :: VIVIDUS)` is equal to `1`
