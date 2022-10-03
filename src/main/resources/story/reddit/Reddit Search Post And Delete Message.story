@@ -20,5 +20,5 @@ Scenario: Search a post and open it page
 When I enter `cute puppy` in field located `By.xpath(//input[@id="header-search-bar"])`
 When I wait until element located `By.xpath(//*[@data-testid="search-trigger-item"])` appears
 When I click on element located `By.xpath(//*[@data-testid="search-trigger-item"])`
-When I wait until element located `By.xpath((//*[@data-testid="post-container" and .//@data-click-id="body"])[1])` appears
-When I click on element located `By.xpath((//*[@data-testid="post-container" and .//@data-click-id="body"])[1])`
+When I wait until element located `By.xpath((//*[@data-testid="post-container" and .//*[@data-click-id="body"]])[1])` appears
+When I click on element located `By.xpath((//*[@data-testid="post-container" and .//*[@data-click-id="body"]])[1])`
