@@ -1,0 +1,46 @@
+name: Electron Demo Test Run
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 4 * * MON-FRI'
+
+jobs:
+  electron-test-run:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout (including submodules)
+      uses: actions/checkout@v3
+      with:
+        submodules: recursive
+        
+    - name: Cache tests history
+      uses: pat-s/always-upload-cache@v3.0.1
+      with:
+        path: output/history
+        key: tests-history-cache
+        restore-keys: |
+          tests-history-cache
+
+    - name: Install VS code
+      run: brew install --cask visual-studio-code
+
+    - name: Set up JDK
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: 17
+        cache: 'gradle'
+
+    - name: Run Electron tests
+      run: |
+        ./gradlew runStories -Pvividus.configuration.suites=electron \
+                             -Pvividus.configuration.profiles=desktop/electron,web/desktop/chrome
+
+    - name: Publish Electron tests report
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: Electron tests report
+        path: output/reports/allure
