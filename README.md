@@ -14,4 +14,4 @@ The instructions on how to run tests can be found in the official ["Getting Star
 |GitLab CI     |[.gitlab-ci.yml](https://github.com/vividus-framework/vividus-sample-tests/blob/main/.gitlab-ci.yml)              |[Pipeline runs](https://gitlab.com/vividus/vividus-sample-tests/-/pipelines)                             |
 
 ## Still have questions?
-Contact us via [**Slack**](https://vividus-support.herokuapp.com/).
+:postbox: [Contact Us](https://docs.vividus.dev/vividus/latest/index.html#_contract_us)
