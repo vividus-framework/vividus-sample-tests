@@ -24,7 +24,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         submodules: recursive
-        
+
     - name: Cache tests history
       uses: pat-s/always-upload-cache@v3.0.11
       with:
@@ -56,13 +56,21 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '16'
-    
+
     - name: Install Appium
-      run: npm i -g appium
+      run: npm i -g appium@2.0.0-beta.46
+
+    - name: Install XCUITest driver
+      if: matrix.platform == 'iOS'
+      run: appium driver install xcuitest
+
+    - name: Install UiAutomator2 driver
+      if: matrix.platform == 'Android'
+      run: appium driver install uiautomator2
 
     - name: Start appium server
-      run: appium --relaxed-security --log-timestamp --log appium.log &
-  
+      run: appium --base-path /wd/hub --relaxed-security --log-timestamp --log appium.log &
+
     - name: Run iOS tests
       if: matrix.platform == 'iOS'
       run: |
@@ -70,7 +78,8 @@ jobs:
                              -Pvividus.configuration.profiles=mobile_app/local,mobile_app/ios \
                              -Pvividus.allure.history-directory=output/history/ios \
                              -Pvividus.selenium.grid.capabilities.showXcodeLog=true \
-                             -Pvividus.selenium.grid.capabilities.wdaLaunchTimeout=300000 \
+                             -Pvividus.selenium.grid.capabilities.wdaLaunchTimeout=360000 \
+                             -Pvividus.selenium.grid.capabilities.appium\:simulatorStartupTimeout=300000 \
                              -Pvividus.selenium.grid.capabilities.isHeadless=true
 
     - name: Run Android tests
