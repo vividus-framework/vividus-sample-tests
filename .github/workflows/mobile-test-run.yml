@@ -69,13 +69,13 @@ jobs:
       run: appium driver install uiautomator2
 
     - name: Start appium server
-      run: appium --base-path /wd/hub --relaxed-security --log-timestamp --log appium.log &
+      run: appium --relaxed-security --log-timestamp --log appium.log &
 
     - name: Run iOS tests
       if: matrix.platform == 'iOS'
       run: |
         ./gradlew runStories -Pvividus.configuration.suites=mobile_app/ios \
-                             -Pvividus.configuration.profiles=mobile_app/local,mobile_app/ios \
+                             -Pvividus.configuration.profiles=mobile_app/local2,mobile_app/ios \
                              -Pvividus.allure.history-directory=output/history/ios \
                              -Pvividus.selenium.grid.capabilities.showXcodeLog=true \
                              -Pvividus.selenium.grid.capabilities.wdaLaunchTimeout=360000 \
@@ -86,7 +86,7 @@ jobs:
       if: matrix.platform == 'Android'
       run: |
         ./gradlew runStories -Pvividus.configuration.suites=mobile_app/android \
-                             -Pvividus.configuration.profiles=mobile_app/local,mobile_app/android \
+                             -Pvividus.configuration.profiles=mobile_app/local2,mobile_app/android \
                              -Pvividus.allure.history-directory=output/history/android \
                              -Pvividus.selenium.grid.capabilities.deviceName="$ANDROID_EMU_NAME"
 
