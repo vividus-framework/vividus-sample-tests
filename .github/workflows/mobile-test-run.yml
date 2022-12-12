@@ -5,6 +5,7 @@ env:
   ANDROID_EMU_ABI: x86
   ANDROID_EMU_TARGET: android-29
   ANDROID_EMU_TAG: default
+  IOS_DEVICE_NAME: test-device
 
 on:
   workflow_dispatch:
@@ -64,6 +65,10 @@ jobs:
       if: matrix.platform == 'iOS'
       run: appium driver install xcuitest
 
+    - name: Boot simulator
+      if: matrix.platform == 'iOS'
+      run: xcrun simctl create $IOS_DEVICE_NAME "iPhone 14 Pro Max" | xargs xcrun simctl boot
+
     - name: Install UiAutomator2 driver
       if: matrix.platform == 'Android'
       run: appium driver install uiautomator2
@@ -80,7 +85,9 @@ jobs:
                              -Pvividus.selenium.grid.capabilities.showXcodeLog=true \
                              -Pvividus.selenium.grid.capabilities.wdaLaunchTimeout=360000 \
                              -Pvividus.selenium.grid.capabilities.appium\:simulatorStartupTimeout=300000 \
-                             -Pvividus.selenium.grid.capabilities.isHeadless=true
+                             -Pvividus.selenium.grid.capabilities.udid=$(xcrun simctl list | grep "$IOS_DEVICE_NAME" | sed 's/[^(]*(\([^()]*\)).*/\1/g') \
+                             -Pvividus.selenium.grid.capabilities.deviceName=$IOS_DEVICE_NAME
+
 
     - name: Run Android tests
       if: matrix.platform == 'Android'
