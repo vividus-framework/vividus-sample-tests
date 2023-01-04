@@ -1,0 +1,2 @@
+Composite: When I open side menu
+When I tap on element located by `${menuLocator}`

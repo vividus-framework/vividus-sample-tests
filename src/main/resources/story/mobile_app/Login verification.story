@@ -1,10 +1,13 @@
 Scenario: Start the application
 Given I start mobile application
-When I wait until element located `accessibilityId(test-Username)` appears
+When I open side menu
+When I tap on element located by `accessibilityId(menu item log in)`
+
 
 Scenario: User should be able to log in
-When I type `standard_user` in field located `accessibilityId(test-Username)`
-When I type `secret_sauce` in field located `accessibilityId(test-Password)`
-When I tap on element located `accessibilityId(test-LOGIN)`
+When I type `bob@example.com` in field located `accessibilityId(Username input field)`
+When I type `10203040` in field located `accessibilityId(Password input field)`
+When I swipe up to element located by `accessibilityId(Login button)` with duration PT3S
+When I tap on element located by `accessibilityId(Login button)`
 !-- The locator is ugly to keep it work for both paltforms. (Element misses accessibility id)
-When I wait until element located `xpath(//*[@*="PRODUCTS" and (local-name()="XCUIElementTypeStaticText" or local-name()="android.widget.TextView")])` appears
+When I wait until element located by `xpath(//*[@*="Products" and (local-name()="XCUIElementTypeStaticText" or local-name()="android.widget.TextView")])` appears

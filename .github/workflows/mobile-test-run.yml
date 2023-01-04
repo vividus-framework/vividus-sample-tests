@@ -85,6 +85,7 @@ jobs:
                              -Pvividus.selenium.grid.capabilities.showXcodeLog=true \
                              -Pvividus.selenium.grid.capabilities.wdaLaunchTimeout=360000 \
                              -Pvividus.selenium.grid.capabilities.appium\:simulatorStartupTimeout=600000 \
+                             -Pvividus.selenium.grid.capabilities.udid="$(xcrun simctl list | grep "$DEVICE_NAME" | sed 's/[^(]*(\([^()]*\)).*/\1/g')" \
                              -Pvividus.selenium.grid.capabilities.deviceName="$DEVICE_NAME"
 
 
