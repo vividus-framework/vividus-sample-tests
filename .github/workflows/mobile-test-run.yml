@@ -63,7 +63,7 @@ jobs:
         node-version: '16'
 
     - name: Install Appium
-      run: npm i -g appium@2.0.0-beta.46
+      run: npm i -g appium@2.0.0-beta.53
 
     - name: Install XCUITest driver
       if: matrix.platform == 'iOS'
