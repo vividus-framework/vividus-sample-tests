@@ -4,6 +4,20 @@ on:
   workflow_dispatch:
   schedule:
     - cron:  '30 4 * * MON-FRI'
+  push:
+    branches:
+    - main
+    paths:
+    - '**/rest_api/**'
+    - '**/web_app/**'
+    - '.github/workflows/test-run.yml'
+  pull_request:
+    branches:
+    - main
+    paths:
+    - '**/rest_api/**'
+    - '**/web_app/**'
+    - '.github/workflows/test-run.yml'
 
 jobs:
   test-run:
@@ -15,7 +29,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         submodules: recursive
-        
+
     - name: Cache tests history
       uses: pat-s/always-upload-cache@v3.0.11
       with:
