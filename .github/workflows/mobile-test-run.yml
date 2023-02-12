@@ -11,6 +11,22 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '30 4 * * MON-FRI'
+  push:
+    branches:
+    - main
+    paths:
+    - '**/mobile_app/**'
+    - '**/android/**'
+    - '**/ios/**'
+    - '.github/workflows/mobile-test-run.yml'
+  pull_request:
+    branches:
+    - main
+    paths:
+    - '**/mobile_app/**'
+    - '**/android/**'
+    - '**/ios/**'
+    - '.github/workflows/mobile-test-run.yml'
 
 jobs:
   mobile-test-run:
@@ -45,7 +61,7 @@ jobs:
         $ANDROID_HOME/platform-tools/adb wait-for-device
         $ANDROID_HOME/platform-tools/adb devices -l
         echo "Emulator started"
- 
+
     - name: Spin-up iOS simulator
       if: matrix.platform == 'iOS'
       run: xcrun simctl create "$DEVICE_NAME" "$IOS_DEVICE_TYPE_ID" | xargs xcrun simctl boot
