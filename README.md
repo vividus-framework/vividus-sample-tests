@@ -6,6 +6,15 @@ The instructions on how to run tests can be found in the official ["Getting Star
 
 ## List of the available samples
 
+By default the project is not configured to run any test suite: an attempt to execute tests without prior configuration will lead to an error.
+
+### Local test execution
+| Test Suite            | Command |
+|-----------------------|---------|
+| REST API tests        | macOS/Linux:<br/><pre>./gradlew runStories -Pvividus.configuration.suites=rest_api</pre><br/>Windows:<br/><pre>gradlew runStories -Pvividus.configuration.suites=rest_api</pre> |
+||
+| Web Application tests | macOS/Linux:<br/><pre>./gradlew runStories -Pvividus.configuration.suites=web_app -Pvividus.configuration.profiles=web/desktop/chrome</pre><br/>Windows:<br/><pre>gradlew runStories -Pvividus.configuration.suites=web_app -Pvividus.configuration.profiles=web/desktop/chrome</pre> |
+
 ### Test execution in CI
 
 |CI            |Configuration sample                                                                                              |Test execution based on sample configuration                                                             |
