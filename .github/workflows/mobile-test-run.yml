@@ -85,6 +85,10 @@ jobs:
       if: matrix.platform == 'iOS'
       run: appium driver install xcuitest
 
+    - name: Prebuild WebDriverAgent
+      if: matrix.platform == 'iOS'
+      run: appium driver run xcuitest build-wda
+
     - name: Install UiAutomator2 driver
       if: matrix.platform == 'Android'
       run: appium driver install uiautomator2
