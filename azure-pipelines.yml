@@ -1,0 +1,55 @@
+schedules:
+  - cron: '30 4 * * MON-FRI'
+    displayName: Workday tests execution
+    branches:
+      include:
+        - main
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - '**/rest_api/**'
+      - '**/web_app/**'
+      - 'azure-pipelines.yml'
+
+pr:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - '**/rest_api/**'
+      - '**/web_app/**'
+      - 'azure-pipelines.yml'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - checkout: self
+    submodules: true
+
+  - task: JavaToolInstaller@0
+    inputs:
+      versionSpec: '17'
+      jdkArchitectureOption: x64
+      jdkSourceOption: PreInstalled
+
+  - script: |
+      ./gradlew runStories -Pvividus.configuration.suites=rest_api -Pvividus.allure.history-directory=output/history/rest-api-tests
+    displayName: 'Run REST API tests'
+
+  - publish: $(System.DefaultWorkingDirectory)/output/reports/allure
+    artifact: REST API tests report
+    condition: always()
+
+  - script: |
+      ./gradlew runStories -Pvividus.configuration.suites=web_app -Pvividus.configuration.profiles=web/headless/chrome -Pvividus.allure.history-directory=output/history/web-app-tests
+    displayName: 'Run web application tests'
+
+  - publish: $(System.DefaultWorkingDirectory)/output/reports/allure
+    artifact: Web application tests report
+    condition: always()
