@@ -16,4 +16,5 @@ dependencies {
     implementation(group: 'org.vividus', name: 'vividus-plugin-json', version: vividusVersion)
     implementation(group: 'org.vividus', name: 'vividus-plugin-web-app', version: vividusVersion)
     implementation(group: 'org.vividus', name: 'vividus-plugin-mobile-app', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-plugin-applitools', version: '0.5.12-SNAPSHOT')
 }

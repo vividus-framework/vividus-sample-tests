@@ -1,0 +1,21 @@
+Composite:  When I fill in email `$email` and wait for password field to appear
+Given I am on page with URL `https://trello.com/login`
+When I wait until element located by `<email-input-field>` appears
+When I enter `<email>` in field located by `<email-input-field>`
+When I click on element located by `<continue-button>`
+When I wait until element located by `<password-input-field>` appears
+
+Composite:  When I login with email `$email` and password `$password`
+When I fill in email `<email>` and wait for password field to appear
+When I enter `<password>` in field located by `<password-input-field>`
+When I click on element located by `<login-button>`
+When I wait until element located by `<account-button>` appears
+
+Composite: When I log out
+Given I am on page with URL `https://trello.com/`
+When I click on element located by `<account-button>`
+When I wait until element located by `<logout-button>` appears
+When I click on element located by `<logout-button>`
+When I wait until element located by `<logout2-button>` appears
+When I click on element located by `<logout2-button>`
+Then the page with the URL containing '/home' is loaded

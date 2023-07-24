@@ -1,0 +1,25 @@
+{transformer=FROM_LANDSCAPE}
+|email-input-field    |cssSelector(input#user.form-field)                                        |
+|continue-button      |By.xpath(//input[@value='Continue'])                                      |
+|password-input-field |By.xpath(//input[@name='password'])                                       |
+|login-button         |By.xpath(//button[@id='login-submit'])                                    |
+|account-button       |By.xpath(//button[@data-testid='header-member-menu-button'])              |
+|logout-button        |By.xpath(//button[@data-testid='account-menu-logout'])                    |
+|logout2-button       |By.xpath(//button[@data-testid='logout-button'])                          |
+|error-message        |By.xpath(//div[@class='css-haw22i'])                                      |
+|create-button        |By.xpath(//p[contains(text(),'Create')])                                  |
+|create-board-button  |By.xpath(//span[contains(text(),'Create board')])                         |
+|board-title-field    |By.xpath(//input[@data-testid='create-board-title-input'])                |
+|submit-board-button  |By.xpath(//button[@data-testid='create-board-submit-button'])             |
+|list-name-field      |By.xpath(//input[@class='list-name-input'])                               |
+|add-list-button      |By.xpath(//input[@value='Add list' and @type='submit'])                   |
+|add-card-button      |By.xpath(//span[contains(text(),'Add a card')])                           |
+|card-submit-button   |By.xpath(//input[@value='Add card' and @type='submit'])                   |
+|card-name-field      |By.xpath(//textarea[@placeholder='Enter a title for this card…'])         |
+|board-actions-menu   |By.xpath(//span[@data-testid='OverflowMenuHorizontalIcon'])               |
+|more-button          |By.xpath(//a[@class='board-menu-navigation-item-link js-open-more'])      |
+|close-button         |By.xpath(//a[@class='board-menu-navigation-item-link js-close-board'])    |
+|close-board-menu     |By.xpath(//input[@value='Close'])                                         |
+|delete-board-button  |By.xpath(//button[@data-testid='close-board-delete-board-button'])        |
+|delete2-board-button |By.xpath(//button[@data-testid='close-board-delete-board-confirm-button'])|
+|board-deleted-div    |By.xpath(//div//span[contains(text(),'Board deleted.')])                  |
