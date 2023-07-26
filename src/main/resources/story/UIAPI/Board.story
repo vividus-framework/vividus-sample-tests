@@ -22,8 +22,6 @@ When I execute steps while counter is less than or equal to `10` with increment 
 
 
 Scenario: Verify that user can delete board with API
-Meta:
-@id deleteCreatedBoard
 Given I initialize STORY variable `board_name` with value `#{replaceAllByRegExp(^(.*[\\\/]), , #{extractPathFromUrl(${current-page-url})})}`
 Given I initialize STORY variable `url` with value `${main_url}/1/members/me/boards?fields=id,name&name=${board_name}&key=${key}&token=${token}`
 When I execute HTTP GET request for resource with URL `${url}`
