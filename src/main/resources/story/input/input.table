@@ -11,9 +11,10 @@
 |create-board-button  |By.xpath(//span[contains(text(),'Create board')])                         |
 |board-title-field    |By.xpath(//input[@data-testid='create-board-title-input'])                |
 |submit-board-button  |By.xpath(//button[@data-testid='create-board-submit-button'])             |
+|add-another-list     |By.xpath(//a[@class='open-add-list js-open-add-list'])                    |
 |list-name-field      |By.xpath(//input[@class='list-name-input'])                               |
 |add-list-button      |By.xpath(//input[@value='Add list' and @type='submit'])                   |
-|add-card-button      |By.xpath(//span[contains(text(),'Add a card')])                           |
+|add-card-button      |By.xpath((//span[contains(text(),'Add a card')])[1])                      |
 |card-submit-button   |By.xpath(//input[@value='Add card' and @type='submit'])                   |
 |card-name-field      |By.xpath(//textarea[@placeholder='Enter a title for this card…'])         |
 |board-actions-menu   |By.xpath(//span[@data-testid='OverflowMenuHorizontalIcon'])               |

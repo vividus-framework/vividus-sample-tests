@@ -1,5 +1,0 @@
-Composite: When I open side menu
-When I tap on element located by `${menuLocator}`
-When I change context to element located `xpath(//android.widget.ScrollView)->filter.index(1)`
-When I swipe up to element located by `accessibilityId(menu item log in)` with duration PT3S
-When I reset context

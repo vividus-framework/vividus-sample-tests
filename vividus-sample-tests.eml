@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inheritJdk="true">
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<lib name="vividus-0.5.11.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.vividus/vividus/0.5.11/85d97a67af5f0547cd2b2948d3d6e3554cecad81/vividus-0.5.11-sources.jar!/"/>
+	</lib>
+	<lib name="vividus-plugin-electron-0.5.11.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.vividus/vividus-plugin-electron/0.5.11/2d8e946038579834bff784d7d5eb33d1aa904741/vividus-plugin-electron-0.5.11-sources.jar!/"/>
+	</lib>
+	<lib name="vividus-plugin-rest-api-0.5.11.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.vividus/vividus-plugin-rest-api/0.5.11/ef74be5f2e3644908231ac3c574dcf8eeb21c9a9/vividus-plugin-rest-api-0.5.11-sources.jar!/"/>
+	</lib>
+	<lib name="vividus-plugin-json-0.5.11.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.vividus/vividus-plugin-json/0.5.11/199e1c33595761052cdaf57f452887877c925af6/vividus-plugin-json-0.5.11-sources.jar!/"/>
+	</lib>
+	<lib name="vividus-plugin-web-app-0.5.11.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.vividus/vividus-plugin-web-app/0.5.11/be0d252432d1b651ff337ae610a84c43575c6001/vividus-plugin-web-app-0.5.11-sources.jar!/"/>
+	</lib>
+	<lib name="vividus-plugin-mobile-app-0.5.11.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.vividus/vividus-plugin-mobile-app/0.5.11/41c58bef6589915fe1169aa5cec3454b8e356729/vividus-plugin-mobile-app-0.5.11-sources.jar!/"/>
+	</lib>
+	<lib name="vividus-engine-0.5.11.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.vividus/vividus-engine/0.5.11/374a49ae8b6245166f0f06bbab3fd9654681d093/vividus-engine-0.5.11-sources.jar!/"/>
+	</lib>
+	<lib name="vividus-http-client-0.5.11.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.vividus/vividus-http-client/0.5.11/30858292ddcbeb7315519ba941a29cf0aed94373/vividus-http-client-0.5.11-sources.jar!/"/>
+	</lib>
+	<lib name="vividus-reporter-0.5.11.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.vividus/vividus-reporter/0.5.11/608b44ec42c994de3926493c47ec5fa27664a303/vividus-reporter-0.5.11-sources.jar!/"/>
+	</lib>
+	<lib name="json-unit-2.38.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.javacrumbs.json-unit/json-unit/2.38.0/2dc6deb2f69f18f3de7c058ebc0abae9cad1b2be/json-unit-2.38.0-sources.jar!/"/>
+	</lib>
+	<lib name="vividus-extension-selenium-0.5.11.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.vividus/vividus-extension-selenium/0.5.11/c2d5d4fffd772f1c79fae23a854aac2713627a73/vividus-extension-selenium-0.5.11-sources.jar!/"/>
+	</lib>
+	<lib name="vividus-test-context-0.5.11.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.vividus/vividus-test-context/0.5.11/448c5d4945dcc2e432020b0679aa313606a6f98/vividus-test-context-0.5.11-sources.jar!/"/>
+	</lib>
+	<lib name="jbehave-core-5.1.2-alpha.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.vividus/jbehave-core/5.1.2-alpha/e2a183704f595b9e2e97ad6ed7a9e26a1b050769/jbehave-core-5.1.2-alpha-sources.jar!/"/>
+	</lib>
+	<lib name="ashot-feb81d2288.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.pazone/ashot/feb81d2288/b92d62f9c2e8224f9c8ea4310ee56fdd092eafec/ashot-feb81d2288-sources.jar!/"/>
+	</lib>
+	<lib name="json-unit-core-2.38.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.javacrumbs.json-unit/json-unit-core/2.38.0/5978eb2ae9d8fbf0af1e07ae3313fbde1b3ea798/json-unit-core-2.38.0-sources.jar!/"/>
+	</lib>
+	<lib name="junit-platform-launcher-1.9.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-launcher/1.9.2/127cb253e495382cf9683a9acfaf7633bf27b2a7/junit-platform-launcher-1.9.2-sources.jar!/"/>
+	</lib>
+	<lib name="junit-jupiter-5.9.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter/5.9.2/5fd01c33132462aab3905cb74bd1097a713ab91a/junit-jupiter-5.9.2-sources.jar!/"/>
+	</lib>
+	<lib name="junit-platform-engine-1.9.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/1.9.2/819f0849cf19b1f46718c36a4fc8406c87bced45/junit-platform-engine-1.9.2-sources.jar!/"/>
+	</lib>
+	<lib name="junit-jupiter-params-5.9.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-params/5.9.2/6dc22e4af51cac3e98fe10e0807fee878c79bb59/junit-jupiter-params-5.9.2-sources.jar!/"/>
+	</lib>
+	<lib name="junit-jupiter-api-5.9.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.9.2/5232572dbe6548235580494edb226fed76109643/junit-jupiter-api-5.9.2-sources.jar!/"/>
+	</lib>
+	<lib name="junit-platform-commons-1.9.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.9.2/44bff8441bcb66b817b5a9d5c1a6717cdf26dbde/junit-platform-commons-1.9.2-sources.jar!/"/>
+	</lib>
+	<lib name="junit-vintage-engine-5.9.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.vintage/junit-vintage-engine/5.9.2/2c49683874960c933535779555e02a9fac4ca154/junit-vintage-engine-5.9.2-sources.jar!/"/>
+	</lib>
+	<lib name="junit-4.13.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.13.2/33987872a811fe4d4001ed494b07854822257f42/junit-4.13.2-sources.jar!/"/>
+	</lib>
+	<lib name="hamcrest-core-2.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/2.2/260c1224a39af35b0dbf85201647125f25f1b40d/hamcrest-core-2.2-sources.jar!/"/>
+	</lib>
+	<lib name="hamcrest-2.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest/2.2/a0a13cfc629420efb587d954f982c4c6a100da25/hamcrest-2.2-sources.jar!/"/>
+	</lib>
+	<lib name="httpclient5-5.2.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents.client5/httpclient5/5.2.1/6f7ee311b403e9ff5d04e9128ea6a0fca4eb0a43/httpclient5-5.2.1-sources.jar!/"/>
+	</lib>
+	<lib name="java-client-8.5.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.appium/java-client/8.5.1/869cb17ee04b6f6f7d73228386976d33572c191d/java-client-8.5.1-sources.jar!/"/>
+	</lib>
+	<lib name="selenium-support-4.10.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-support/4.10.0/7e30b293a6b19eedc76f1380f3ea0e612d06334c/selenium-support-4.10.0-sources.jar!/"/>
+	</lib>
+	<lib name="selenium-remote-driver-4.10.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-remote-driver/4.10.0/9e001e14f5c296e77a3b37353b42c409003f885/selenium-remote-driver-4.10.0-sources.jar!/"/>
+	</lib>
+	<lib name="selenium-http-4.10.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-http/4.10.0/316280056495114e17360eb9ddb6169baeba63d1/selenium-http-4.10.0-sources.jar!/"/>
+	</lib>
+	<lib name="selenium-manager-4.10.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-manager/4.10.0/a742bcb0b1b0223fe5c5ac00db300a1d37e843e8/selenium-manager-4.10.0-sources.jar!/"/>
+	</lib>
+	<lib name="selenium-json-4.10.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-json/4.10.0/e4f546177798f87827a536f5ff4d75ff6e682511/selenium-json-4.10.0-sources.jar!/"/>
+	</lib>
+	<lib name="selenium-api-4.10.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-api/4.10.0/803138166bedd1dbffda07e9f3fd0d59830faca8/selenium-api-4.10.0-sources.jar!/"/>
+	</lib>
+	<lib name="browserup-proxy-core-2.2.10.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.valfirst.browserup-proxy/browserup-proxy-core/2.2.10/49476c1b240d0d7ba099472352d73e891af653e/browserup-proxy-core-2.2.10-sources.jar!/"/>
+	</lib>
+	<lib name="commons-text-1.10.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-text/1.10.0/99ad76c831fcf0edead47f3aa9c0731653a0845d/commons-text-1.10.0-sources.jar!/"/>
+	</lib>
+	<lib name="littleproxy-2.0.17.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/xyz.rogfam/littleproxy/2.0.17/a26b44a932b91f2b471aa67c81ee8a26da3bfe55/littleproxy-2.0.17-sources.jar!/"/>
+	</lib>
+	<lib name="commons-lang3-3.12.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.12.0/198b882fdc2c72c89c63401d946f6ba46c3acea3/commons-lang3-3.12.0-sources.jar!/"/>
+	</lib>
+	<lib name="plexus-utils-3.5.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-utils/3.5.0/3dea705bdf7a667bc72b982cab5c32610fc1774a/plexus-utils-3.5.0-sources.jar!/"/>
+	</lib>
+	<lib name="freemarker-2.3.32.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.freemarker/freemarker/2.3.32/64bf97293444e5680b7e07219421e8d79b2ae762/freemarker-2.3.32-sources.jar!/"/>
+	</lib>
+	<lib name="gson-2.10.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.10.1/982a90132e942f302e6fe79d6e78c4bc2e998569/gson-2.10.1-sources.jar!/"/>
+	</lib>
+	<lib name="paranamer-2.8.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.thoughtworks.paranamer/paranamer/2.8/8f3421a8203053a6ab4b74f76a0550d21eee8cfe/paranamer-2.8-sources.jar!/"/>
+	</lib>
+	<lib name="httpcore5-h2-5.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents.core5/httpcore5-h2/5.2/87e5eed16e0cdf7ccb8e434b6de7bca243d858d3/httpcore5-h2-5.2-sources.jar!/"/>
+	</lib>
+	<lib name="httpcore5-5.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents.core5/httpcore5/5.2/9c701e330a33690077c7788251f9b061ee7cec28/httpcore5-5.2-sources.jar!/"/>
+	</lib>
+	<lib name="async-http-client-2.12.3.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.asynchttpclient/async-http-client/2.12.3/4c66b91161f9f66499509ca4aa3631da17e2f4a6/async-http-client-2.12.3-sources.jar!/"/>
+	</lib>
+	<lib name="async-http-client-netty-utils-2.12.3.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.asynchttpclient/async-http-client-netty-utils/2.12.3/62b1d8d814d5286a807fe4528b0cb7fd09640594/async-http-client-netty-utils-2.12.3-sources.jar!/"/>
+	</lib>
+	<lib name="slf4j-api-2.0.7.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/2.0.7/f887f95694cd20d51a062446b6e3d09dd02d98ff/slf4j-api-2.0.7-sources.jar!/"/>
+	</lib>
+	<lib name="har-reader-2.2.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/de.sstoehr/har-reader/2.2.1/c0bb7ddca05d85a4dfa3492a042a89311a8a00d6/har-reader-2.2.1-sources.jar!/"/>
+	</lib>
+	<lib name="auto-service-1.0.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.auto.service/auto-service/1.0.1/373f2b2c234b3d46bfe49a112cfe053b2c3b1beb/auto-service-1.0.1-sources.jar!/"/>
+	</lib>
+	<lib name="auto-service-annotations-1.0.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.auto.service/auto-service-annotations/1.0.1/81d155712ad79e1914732d23cd255d88143676aa/auto-service-annotations-1.0.1-sources.jar!/"/>
+	</lib>
+	<lib name="auto-common-1.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.auto/auto-common/1.2/4fe76e8a3f5aaafa743d23bac4347803ecda3d70/auto-common-1.2-sources.jar!/"/>
+	</lib>
+	<lib name="byte-buddy-1.14.4.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy/1.14.4/94651fa92930ce2d26e3d5e4a7af5631f2f6cb2c/byte-buddy-1.14.4-sources.jar!/"/>
+	</lib>
+	<lib name="netty-handler-proxy-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-handler-proxy/4.1.92.Final/ad44d79ce55b91093c58a7f8c6296b064f8b2b42/netty-handler-proxy-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-codec-http-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-http/4.1.92.Final/d8baa735b487df5b0bf466cb8c27939e77879edf/netty-codec-http-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-transport-native-epoll-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.92.Final/cb0faae66bc601102d3e492c88bcb8a1190c4bef/netty-transport-native-epoll-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-transport-native-epoll-4.1.92.Final-linux-x86_64.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.92.Final/cb0faae66bc601102d3e492c88bcb8a1190c4bef/netty-transport-native-epoll-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-transport-classes-epoll-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-classes-epoll/4.1.92.Final/c5690d7c52ef92cced05f6601d6ff866c203d014/netty-transport-classes-epoll-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-transport-native-kqueue-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-kqueue/4.1.92.Final/787ae74453c87f0ea160bccb968e4cb12107da9b/netty-transport-native-kqueue-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-transport-native-kqueue-4.1.92.Final-osx-x86_64.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-kqueue/4.1.92.Final/787ae74453c87f0ea160bccb968e4cb12107da9b/netty-transport-native-kqueue-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-transport-classes-kqueue-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-classes-kqueue/4.1.92.Final/d7a9ba5d67520f824445baa5540e81a60395d37/netty-transport-classes-kqueue-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-reactive-streams-2.0.4.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.typesafe.netty/netty-reactive-streams/2.0.4/dea768fe806e1352d7b3c05fa94b6391f7468238/netty-reactive-streams-2.0.4-sources.jar!/"/>
+	</lib>
+	<lib name="netty-handler-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-handler/4.1.92.Final/c62c8f97edab6358121c11a4c4aa66cccb42a180/netty-handler-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-transport-native-unix-common-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-unix-common/4.1.92.Final/2be9ff4e32fb5e625dd170db933bf2034504ba85/netty-transport-native-unix-common-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-codec-socks-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-socks/4.1.92.Final/2657cb3f37ec7ffcb1199ac7e8badce72186509e/netty-codec-socks-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-codec-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec/4.1.92.Final/138d90f6714ca6c7ecfb7826142973d9e495fa4b/netty-codec-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-transport-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport/4.1.92.Final/ef074efc32f927ca16136e5c49a5238799a43ce0/netty-transport-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-buffer-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-buffer/4.1.92.Final/ef5c41e5e1961865410d7b63a8cef25dd8ddf6ba/netty-buffer-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-resolver-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-resolver/4.1.92.Final/3f84a1e86486135ce88d26a368c172c1d97a2a91/netty-resolver-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-common-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-common/4.1.92.Final/588cf42303d9f5523dbdad7a5a39c3f642d4d7ca/netty-common-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="opentelemetry-exporter-logging-1.26.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.opentelemetry/opentelemetry-exporter-logging/1.26.0/7bec6b243f1d2b358a0aabbbe85228964f18ab3d/opentelemetry-exporter-logging-1.26.0-sources.jar!/"/>
+	</lib>
+	<lib name="opentelemetry-sdk-extension-autoconfigure-1.26.0-alpha.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.opentelemetry/opentelemetry-sdk-extension-autoconfigure/1.26.0-alpha/ea181b4f66b6e9b4e1c41ee1fdfd18c3419e5f8/opentelemetry-sdk-extension-autoconfigure-1.26.0-alpha-sources.jar!/"/>
+	</lib>
+	<lib name="opentelemetry-sdk-extension-autoconfigure-spi-1.26.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.opentelemetry/opentelemetry-sdk-extension-autoconfigure-spi/1.26.0/9b5d9ccba3c8b08b0cccaf927abc6276bd3e9949/opentelemetry-sdk-extension-autoconfigure-spi-1.26.0-sources.jar!/"/>
+	</lib>
+	<lib name="opentelemetry-sdk-1.26.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.opentelemetry/opentelemetry-sdk/1.26.0/4b167079bf16cf579099d1a5e6e22c62c259ceb5/opentelemetry-sdk-1.26.0-sources.jar!/"/>
+	</lib>
+	<lib name="opentelemetry-sdk-trace-1.26.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.opentelemetry/opentelemetry-sdk-trace/1.26.0/58bd910927c3ef94542ba25539d3f00832c90ef7/opentelemetry-sdk-trace-1.26.0-sources.jar!/"/>
+	</lib>
+	<lib name="opentelemetry-sdk-metrics-1.26.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.opentelemetry/opentelemetry-sdk-metrics/1.26.0/1afea00a7b1378853a3ed18971db36f5f02a16a4/opentelemetry-sdk-metrics-1.26.0-sources.jar!/"/>
+	</lib>
+	<lib name="opentelemetry-sdk-logs-1.26.0-alpha.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.opentelemetry/opentelemetry-sdk-logs/1.26.0-alpha/9cfd2fac6438dbf1535728430ea1ee06e227a26d/opentelemetry-sdk-logs-1.26.0-alpha-sources.jar!/"/>
+	</lib>
+	<lib name="opentelemetry-sdk-common-1.26.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.opentelemetry/opentelemetry-sdk-common/1.26.0/9bc19edfcec34056ed38205234ac364ac537f0ee/opentelemetry-sdk-common-1.26.0-sources.jar!/"/>
+	</lib>
+	<lib name="opentelemetry-semconv-1.26.0-alpha.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.opentelemetry/opentelemetry-semconv/1.26.0-alpha/e758e958ed2c2c8a2ed7053ecaab1d4a4b3e0749/opentelemetry-semconv-1.26.0-alpha-sources.jar!/"/>
+	</lib>
+	<lib name="opentelemetry-api-logs-1.26.0-alpha.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.opentelemetry/opentelemetry-api-logs/1.26.0-alpha/792252581451bb575a139f3162e74203eb1fa081/opentelemetry-api-logs-1.26.0-alpha-sources.jar!/"/>
+	</lib>
+	<lib name="opentelemetry-api-events-1.26.0-alpha.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.opentelemetry/opentelemetry-api-events/1.26.0-alpha/f2eecefc0aa5256d7d23250d928baf40c37110b2/opentelemetry-api-events-1.26.0-alpha-sources.jar!/"/>
+	</lib>
+	<lib name="opentelemetry-api-1.26.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.opentelemetry/opentelemetry-api/1.26.0/72fde0deb3c2837d9126e4e03311b7e802a574dd/opentelemetry-api-1.26.0-sources.jar!/"/>
+	</lib>
+	<lib name="opentelemetry-context-1.26.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.opentelemetry/opentelemetry-context/1.26.0/8f2f0b38843cc592622064cfc4d09570002a54d/opentelemetry-context-1.26.0-sources.jar!/"/>
+	</lib>
+	<lib name="commons-exec-1.3.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-exec/1.3/efd2543e352e55ce5a685eed6db8af028b737905/commons-exec-1.3-sources.jar!/"/>
+	</lib>
+	<lib name="netty-codec-dns-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-dns/4.1.92.Final/a1f160c8c8f696afd71bd000f655d0012206cfba/netty-codec-dns-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-codec-haproxy-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-haproxy/4.1.92.Final/eaf26c140236a76b7185b63af1ab6a206963082b/netty-codec-haproxy-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-codec-http2-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-http2/4.1.92.Final/601bd82ada5e6ec593e67207ec2431a4d2c99610/netty-codec-http2-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-codec-memcache-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-memcache/4.1.92.Final/ca7b3e058bac2cb68ddf17eede825bd1ba9612ff/netty-codec-memcache-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-codec-mqtt-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-mqtt/4.1.92.Final/f4fe6dbb7f308cf2ccab499e903d47d68c58252e/netty-codec-mqtt-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-codec-redis-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-redis/4.1.92.Final/3be6d39e62b6d7de9deb88b3edb778ceb015e50b/netty-codec-redis-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-codec-smtp-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-smtp/4.1.92.Final/78ac3525feecd83a08c4cd85183ee91227a11916/netty-codec-smtp-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-codec-stomp-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-stomp/4.1.92.Final/3a99064f0edee87fcbbe550e2e64d784445df909/netty-codec-stomp-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-codec-xml-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-xml/4.1.92.Final/dfce49431c98eca52dacb45ee87d1d9f152b284d/netty-codec-xml-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-handler-ssl-ocsp-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-handler-ssl-ocsp/4.1.92.Final/287d61347d7de04ed095c5f80d8605e50cc30ff4/netty-handler-ssl-ocsp-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-resolver-dns-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-resolver-dns/4.1.92.Final/65dab13b5a369899d458650a1e6d5ae8b49b0551/netty-resolver-dns-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-transport-rxtx-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-rxtx/4.1.92.Final/14b79c7fadadea05b3f045f3e254756a5fbb4658/netty-transport-rxtx-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-transport-sctp-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-sctp/4.1.92.Final/db54c276628f730d3fea17c6a0d0bc2062cf4db5/netty-transport-sctp-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-transport-udt-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-udt/4.1.92.Final/2032ec9451f3e5e8a680db63aec5d690f6ed3c81/netty-transport-udt-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-resolver-dns-classes-macos-4.1.92.Final.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-resolver-dns-classes-macos/4.1.92.Final/21c607c65111f60abca27b76e88752b34d2a6baf/netty-resolver-dns-classes-macos-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="barchart-udt-bundle-2.3.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.barchart.udt/barchart-udt-bundle/2.3.0/dbb3b69c400494d28555f6c9c343c873cbe3a4bb/barchart-udt-bundle-2.3.0-sources.jar!/"/>
+	</lib>
+	<lib name="failureaccess-1.0.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/failureaccess/1.0.1/1d064e61aad6c51cc77f9b59dc2cccc78e792f5a/failureaccess-1.0.1-sources.jar!/"/>
+	</lib>
+	<lib name="jsr305-3.0.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.2/b19b5927c2c25b6c70f093767041e641ae0b1b35/jsr305-3.0.2-sources.jar!/"/>
+	</lib>
+	<lib name="reactive-streams-1.0.3.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.reactivestreams/reactive-streams/1.0.3/e6ffdff8c438d959376c91d94b319457354a84c5/reactive-streams-1.0.3-sources.jar!/"/>
+	</lib>
+	<lib name="failsafe-3.3.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/dev.failsafe/failsafe/3.3.1/81cb52cbde62be0a021b01c816377692191c37d0/failsafe-3.3.1-sources.jar!/"/>
+	</lib>
+	<lib name="opentest4j-1.2.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentest4j/opentest4j/1.2.0/41d55b3c2254de9837b4ec8923cbd371b8a7eab5/opentest4j-1.2.0-sources.jar!/"/>
+	</lib>
+	<lib name="vividus-allure-adaptor-0.5.11.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.vividus/vividus-allure-adaptor/0.5.11/d4cbe3aacf53284fc796c5c42f544caa14cb986d/vividus-allure-adaptor-0.5.11-sources.jar!/"/>
+	</lib>
+	<lib name="vividus-analytics-0.5.11.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.vividus/vividus-analytics/0.5.11/c8a2689b9b3f253942951595904d6683d78719f3/vividus-analytics-0.5.11-sources.jar!/"/>
+	</lib>
+	<lib name="vividus-soft-assert-0.5.11.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.vividus/vividus-soft-assert/0.5.11/ceda8e30eb6861eca4fe013f49ed2b467091f52b/vividus-soft-assert-0.5.11-sources.jar!/"/>
+	</lib>
+	<lib name="vividus-util-0.5.11.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.vividus/vividus-util/0.5.11/2fe41520ed28612e005a6bdf3234d49a1ca789c4/vividus-util-0.5.11-sources.jar!/"/>
+	</lib>
+	<lib name="allure-notifications-7cb2162d40.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.valfirst/allure-notifications/7cb2162d40/54399a126280d31a2ba6fa315108c30abd59e159/allure-notifications-7cb2162d40-sources.jar!/"/>
+	</lib>
+	<lib name="browserup-proxy-mitm-2.2.10.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.valfirst.browserup-proxy/browserup-proxy-mitm/2.2.10/b56ea330367db994bc1a7a43a409752535851a49/browserup-proxy-mitm-2.2.10-sources.jar!/"/>
+	</lib>
+	<lib name="jcl-over-slf4j-2.0.7.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/2.0.7/d9237c3a64be631631b746359c7cd7726b4445c5/jcl-over-slf4j-2.0.7-sources.jar!/"/>
+	</lib>
+	<lib name="jul-to-slf4j-2.0.7.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/2.0.7/9c8390d2f8b7b09f8f9e80f2ecda55ec60d00d38/jul-to-slf4j-2.0.7-sources.jar!/"/>
+	</lib>
+	<lib name="json-path-assert-2.8.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jayway.jsonpath/json-path-assert/2.8.0/8390a7ce4c29ea47513de4bc831dc0f17a48d3dc/json-path-assert-2.8.0-sources.jar!/"/>
+	</lib>
+	<lib name="json-path-2.8.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jayway.jsonpath/json-path/2.8.0/4cef8f7eaa1e056e5eae9bd000e43b342fdffda8/json-path-2.8.0-sources.jar!/"/>
+	</lib>
+	<lib name="allure-generator-2.22.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.qameta.allure/allure-generator/2.22.1/4d7e13f1518f9ee535be5373d0acbf9ed5e4ee8a/allure-generator-2.22.1-sources.jar!/"/>
+	</lib>
+	<lib name="tika-core-2.8.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tika/tika-core/2.8.0/d926792e4ce4d171bb608db99a2fc38e425dd234/tika-core-2.8.0-sources.jar!/"/>
+	</lib>
+	<lib name="json-schema-validator-1.0.85.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.networknt/json-schema-validator/1.0.85/851c444b7fff1424da1747d767f4234d248c99b0/json-schema-validator-1.0.85-sources.jar!/"/>
+	</lib>
+	<lib name="selenide-6.15.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.codeborne/selenide/6.15.0/6fcb5cf24fb8b6ead47d8773260dd1a48dbd0c89/selenide-6.15.0-sources.jar!/"/>
+	</lib>
+	<lib name="selenide-core-6.15.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.codeborne/selenide-core/6.15.0/36b9358c3f27ae92ce85085c766726cacb1456c8/selenide-core-6.15.0-sources.jar!/"/>
+	</lib>
+	<lib name="webdrivermanager-5.4.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.bonigarcia/webdrivermanager/5.4.0/f2be5e352a9c9bdd455b07b666b0e96693e76c7b/webdrivermanager-5.4.0-sources.jar!/"/>
+	</lib>
+	<lib name="log4j-slf4j2-impl-2.20.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-slf4j2-impl/2.20.0/19e4e1d9ccf72457595dbe6101e3dd4cdf45994a/log4j-slf4j2-impl-2.20.0-sources.jar!/"/>
+	</lib>
+	<lib name="allure-java-commons-2.22.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.qameta.allure/allure-java-commons/2.22.1/58695a1ea181fb98f5d4d0a3e656c3b2f02251b2/allure-java-commons-2.22.1-sources.jar!/"/>
+	</lib>
+	<lib name="allure-plugin-api-2.22.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.qameta.allure/allure-plugin-api/2.22.1/f1fa47b5f7bf0477b05e4b4c8ad5d9c501f4efc2/allure-plugin-api-2.22.1-sources.jar!/"/>
+	</lib>
+	<lib name="httpclient5-win-5.2.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents.client5/httpclient5-win/5.2.1/c8b068f6389584f44362775399e3f15c3a796a42/httpclient5-win-5.2.1-sources.jar!/"/>
+	</lib>
+	<lib name="allure1-model-1.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.allurefw/allure1-model/1.0/9427a7625b28ae92108752ec2845559904d480c3/allure1-model-1.0-sources.jar!/"/>
+	</lib>
+	<lib name="asciitable-0.3.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/de.vandermeer/asciitable/0.3.2/e77c09953612e6cbc7e93a6ee3935c5e35edc6d6/asciitable-0.3.2-sources.jar!/"/>
+	</lib>
+	<lib name="ascii-utf-themes-0.0.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/de.vandermeer/ascii-utf-themes/0.0.1/90e0c7830dd86962ce308d6154806fc875bbe714/ascii-utf-themes-0.0.1-sources.jar!/"/>
+	</lib>
+	<lib name="char-translation-0.0.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/de.vandermeer/char-translation/0.0.2/359ee3e51233505715bb7c350f13eaedeb527dc3/char-translation-0.0.2-sources.jar!/"/>
+	</lib>
+	<lib name="skb-interfaces-0.0.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/de.vandermeer/skb-interfaces/0.0.1/df9fdb3bcc0927abed1dfed0e3a443149b745228/skb-interfaces-0.0.1-sources.jar!/"/>
+	</lib>
+	<lib name="dnsjava-3.5.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/dnsjava/dnsjava/3.5.2/f69e82448803999e40df69b18ef41a7bc83c0007/dnsjava-3.5.2-sources.jar!/"/>
+	</lib>
+	<lib name="zt-exec-1.12.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.zeroturnaround/zt-exec/1.12/cf36f4e0fae8d794299fb1192e94dfa8a10c596c/zt-exec-1.12-sources.jar!/"/>
+	</lib>
+	<lib name="selenium-java-4.10.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-java/4.10.0/1ecb37e0b737a743a5e8860df99f402f508fd2f6/selenium-java-4.10.0-sources.jar!/"/>
+	</lib>
+	<lib name="selenium-chrome-driver-4.10.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-chrome-driver/4.10.0/5528ffb2499b5c0d5f7972d13d04320efac884d6/selenium-chrome-driver-4.10.0-sources.jar!/"/>
+	</lib>
+	<lib name="selenium-edge-driver-4.10.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-edge-driver/4.10.0/e04d98fded0c182903fe0429d4d80b1266c26da2/selenium-edge-driver-4.10.0-sources.jar!/"/>
+	</lib>
+	<lib name="selenium-firefox-driver-4.10.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-firefox-driver/4.10.0/2b040314ca63aff801328128dceb6195b2b89a8e/selenium-firefox-driver-4.10.0-sources.jar!/"/>
+	</lib>
+	<lib name="selenium-ie-driver-4.10.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-ie-driver/4.10.0/b43bf1e89276506986c4e28c91c6fb49fb75e57b/selenium-ie-driver-4.10.0-sources.jar!/"/>
+	</lib>
+	<lib name="selenium-safari-driver-4.10.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-safari-driver/4.10.0/8c89918822edb9ff47273f6157ed4702ac78339b/selenium-safari-driver-4.10.0-sources.jar!/"/>
+	</lib>
+	<lib name="selenium-chromium-driver-4.10.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-chromium-driver/4.10.0/d3c1babdadf8b07e537501bbd29e44117e17794d/selenium-chromium-driver-4.10.0-sources.jar!/"/>
+	</lib>
+	<lib name="selenium-devtools-v85-4.10.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-devtools-v85/4.10.0/d44232ab2eba0aaa00c5ac84c2d4a7ea16dfe72e/selenium-devtools-v85-4.10.0-sources.jar!/"/>
+	</lib>
+	<lib name="selenium-devtools-v112-4.10.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-devtools-v112/4.10.0/5b406f37d760d8488dd52f79c2c8062e6e3d2942/selenium-devtools-v112-4.10.0-sources.jar!/"/>
+	</lib>
+	<lib name="selenium-devtools-v113-4.10.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-devtools-v113/4.10.0/adce4a37a7f66cd4d5506bac6bc66c982414f09b/selenium-devtools-v113-4.10.0-sources.jar!/"/>
+	</lib>
+	<lib name="selenium-devtools-v114-4.10.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-devtools-v114/4.10.0/76934b927ee851fef59f8882a557fc4379c01ef8/selenium-devtools-v114-4.10.0-sources.jar!/"/>
+	</lib>
+	<lib name="log4j-core-2.20.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.20.0/dcff7bf4ae8a02121c3d9ea326f4c1e8efbf9306/log4j-core-2.20.0-sources.jar!/"/>
+	</lib>
+	<lib name="log4j-api-2.20.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.20.0/646229509a21876eb5e6434f24ec3164665c6c38/log4j-api-2.20.0-sources.jar!/"/>
+	</lib>
+	<lib name="groovy-4.0.12.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.groovy/groovy/4.0.12/57f7c94f152ff95218ab234d30bae7ab0b9d37e2/groovy-4.0.12-sources.jar!/"/>
+	</lib>
+	<lib name="spring-vault-core-2.3.3.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.vault/spring-vault-core/2.3.3/42ee622eed68323a846a50c5f196a45a6f2fd5dc/spring-vault-core-2.3.3-sources.jar!/"/>
+	</lib>
+	<lib name="jbehave-spring-5.1.2-alpha.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.vividus/jbehave-spring/5.1.2-alpha/fed34ca7f3a73c260a455fd4a999d6dbc2dce6df/jbehave-spring-5.1.2-alpha-sources.jar!/"/>
+	</lib>
+	<lib name="spring-context-5.3.28.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/5.3.28/ed4e2808f365304c85c527abe036a9368f75e5f5/spring-context-5.3.28-sources.jar!/"/>
+	</lib>
+	<lib name="javax.inject-1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/a00123f261762a7c5e0ec916a2c7c8298d29c400/javax.inject-1-sources.jar!/"/>
+	</lib>
+	<lib name="commons-cli-1.5.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-cli/commons-cli/1.5.0/e7e198ff537780c2835e484b0ffccd2960074504/commons-cli-1.5.0-sources.jar!/"/>
+	</lib>
+	<lib name="jasypt-spring4-1.9.3.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jasypt/jasypt-spring4/1.9.3/46aa59feddd06cd93cdda9664823ee2d7842e2b2/jasypt-spring4-1.9.3-sources.jar!/"/>
+	</lib>
+	<lib name="allure-jsonunit-2.22.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.qameta.allure/allure-jsonunit/2.22.1/cf16711eb5ada108c323198d2583e50aa293d5b1/allure-jsonunit-2.22.1-sources.jar!/"/>
+	</lib>
+	<lib name="opencsv-4.6.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.opencsv/opencsv/4.6/cbb2525ca01a104dbca6f012bded1a829abd875/opencsv-4.6-sources.jar!/"/>
+	</lib>
+	<lib name="zjsonpatch-0.4.14.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.flipkart.zjsonpatch/zjsonpatch/0.4.14/5174efb4649e6849b9256a4337f05eba5499745f/zjsonpatch-0.4.14-sources.jar!/"/>
+	</lib>
+	<lib name="commons-collections4-4.4.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-collections4/4.4/6260e416ff273ee938b31b0a8e512a367b1ee500/commons-collections4-4.4-sources.jar!/"/>
+	</lib>
+	<lib name="unirest-java-3.13.10.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.konghq/unirest-java/3.13.10/892232acd999442d299fef6a9ec4736a60e38015/unirest-java-3.13.10-sources.jar!/"/>
+	</lib>
+	<lib name="httpmime-4.5.13.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpmime/4.5.13/f4f989a08a1ec3c84ad0aa110cb55590ccf2525/httpmime-4.5.13-sources.jar!/"/>
+	</lib>
+	<lib name="httpclient-4.5.14.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5.14/14321a360aa0e037c56d4c820747a84954d9196e/httpclient-4.5.14-sources.jar!/"/>
+	</lib>
+	<lib name="commons-codec-1.16.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.16.0/57c67a979689051a455570196d0f48134db9909e/commons-codec-1.16.0-sources.jar!/"/>
+	</lib>
+	<lib name="junit-jupiter-engine-5.9.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/5.9.2/128d5b5b681442f6eeab0c8c17825983cc233d68/junit-jupiter-engine-5.9.2-sources.jar!/"/>
+	</lib>
+	<lib name="awaitility-4.2.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.awaitility/awaitility/4.2.0/359e52d6a80b3d12fb08b0e665f15ce334d2c7a3/awaitility-4.2.0-sources.jar!/"/>
+	</lib>
+	<lib name="guava-32.0.1-jre.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/32.0.1-jre/f491b792f07e0a5dc5a6695ea2f3632263b317e4/guava-32.0.1-jre-sources.jar!/"/>
+	</lib>
+	<lib name="classgraph-4.8.158.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.classgraph/classgraph/4.8.158/ae87d90c283b2ce6ee75bab1d68ded07d22f5a89/classgraph-4.8.158-sources.jar!/"/>
+	</lib>
+	<lib name="java-diff-utils-4.12.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.java-diff-utils/java-diff-utils/4.12/175dac5f6daecef7444f24e581a42c48707baa1d/java-diff-utils-4.12-sources.jar!/"/>
+	</lib>
+	<lib name="commons-jexl3-3.3.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-jexl3/3.3/456b21bd71327acb8d324d5a2f08e35c8406e2d2/commons-jexl3-3.3-sources.jar!/"/>
+	</lib>
+	<lib name="datafaker-1.9.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.datafaker/datafaker/1.9.0/c7175927221f65418e21f14d53c347b809bbd35a/datafaker-1.9.0-sources.jar!/"/>
+	</lib>
+	<lib name="spring-web-5.3.28.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.3.28/a9c5470d765438452ddcecfe7c43504ca534b8f/spring-web-5.3.28-sources.jar!/"/>
+	</lib>
+	<lib name="spring-aop-5.3.28.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/5.3.28/52851561177f11273f4d3751932293898a1acb81/spring-aop-5.3.28-sources.jar!/"/>
+	</lib>
+	<lib name="spring-beans-5.3.28.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/5.3.28/8037cd530b8492e639134409afb7577644f7c2ea/spring-beans-5.3.28-sources.jar!/"/>
+	</lib>
+	<lib name="spring-expression-5.3.28.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/5.3.28/a799d82442482aa638b9127c2fca4dede9b812bb/spring-expression-5.3.28-sources.jar!/"/>
+	</lib>
+	<lib name="spring-core-5.3.28.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/5.3.28/40630f55cf0bc357411df2e8a1574c221112a86f/spring-core-5.3.28-sources.jar!/"/>
+	</lib>
+	<lib name="spring-jcl-5.3.28.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jcl/5.3.28/5a1a009196cb47c895cda3b0f5b3658a26665a70/spring-jcl-5.3.28-sources.jar!/"/>
+	</lib>
+	<lib name="behaviors-plugin-2.22.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.qameta.allure.plugins/behaviors-plugin/2.22.1/748cd01ff1a5796cd2de2a2ddacb9e4ec19b3a3a/behaviors-plugin-2.22.1-sources.jar!/"/>
+	</lib>
+	<lib name="jaxb-api-2.3.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.xml.bind/jaxb-api/2.3.1/e47264d065cecbc572ba99856fcc7da19a470ae3/jaxb-api-2.3.1-sources.jar!/"/>
+	</lib>
+	<lib name="jackson-dataformat-yaml-2.15.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.dataformat/jackson-dataformat-yaml/2.15.2/258e40b2ebed34c4d185d81ca8a65e6414728e39/jackson-dataformat-yaml-2.15.2-sources.jar!/"/>
+	</lib>
+	<lib name="jackson-dataformat-xml-2.15.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.dataformat/jackson-dataformat-xml/2.15.2/dcd784e09bac980c55dc4ef07266beaf7be6b261/jackson-dataformat-xml-2.15.2-sources.jar!/"/>
+	</lib>
+	<lib name="jackson-datatype-jdk8-2.15.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.datatype/jackson-datatype-jdk8/2.15.2/b448a5945782a06cc14cd979f68e69145d47c8b0/jackson-datatype-jdk8-2.15.2-sources.jar!/"/>
+	</lib>
+	<lib name="jackson-datatype-jsr310-2.15.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.15.2/dab6447bacd9d7189b27936639219273c2c47432/jackson-datatype-jsr310-2.15.2-sources.jar!/"/>
+	</lib>
+	<lib name="jackson-module-jaxb-annotations-2.15.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.15.2/f80fb026ac830503dbdde1c0692e44b93ee1f467/jackson-module-jaxb-annotations-2.15.2-sources.jar!/"/>
+	</lib>
+	<lib name="jackson-databind-2.15.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.15.2/32d4d520f3e46e7b2c2d4d863d8f2f381af4fa6/jackson-databind-2.15.2-sources.jar!/"/>
+	</lib>
+	<lib name="jackson-core-2.15.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.15.2/4d3e4ff17d2cda69f8fd692694c304ff38a75823/jackson-core-2.15.2-sources.jar!/"/>
+	</lib>
+	<lib name="jackson-annotations-2.15.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.15.2/7458734de3b894cff3f3744ab11ff79b635c80e2/jackson-annotations-2.15.2-sources.jar!/"/>
+	</lib>
+	<lib name="jackson-dataformat-properties-2.15.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.dataformat/jackson-dataformat-properties/2.15.2/30eb0620b8fa6ac0c797f503fe232148a845c2d2/jackson-dataformat-properties-2.15.2-sources.jar!/"/>
+	</lib>
+	<lib name="commons-io-2.13.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.13.0/59459135ff61c3ce83dc2cd3bc120c8bbefb1f48/commons-io-2.13.0-sources.jar!/"/>
+	</lib>
+	<lib name="commons-pool2-2.11.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-pool2/2.11.1/a529af055ae9d640a8a21cd1768c3c28a39d64df/commons-pool2-2.11.1-sources.jar!/"/>
+	</lib>
+	<lib name="jasypt-1.9.3.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jasypt/jasypt/1.9.3/9fe5c909addd00e1f3c27af8b64e22ee98922dcc/jasypt-1.9.3-sources.jar!/"/>
+	</lib>
+	<lib name="checker-qual-3.33.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.checkerframework/checker-qual/3.33.0/ee4ecf6c55e3f2b05b839aa05c70f1298437ebe9/checker-qual-3.33.0-sources.jar!/"/>
+	</lib>
+	<lib name="error_prone_annotations-2.18.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.errorprone/error_prone_annotations/2.18.0/8781f46ef842929cf22e83273ef0d2091b96845f/error_prone_annotations-2.18.0-sources.jar!/"/>
+	</lib>
+	<lib name="j2objc-annotations-2.8.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.j2objc/j2objc-annotations/2.8/74fb66e276fc42784d884d51f841e35232bc90de/j2objc-annotations-2.8-sources.jar!/"/>
+	</lib>
+	<lib name="commons-validator-1.7.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-validator/commons-validator/1.7/dce0d5f2c359f2a5fc2243310bba0b515d0df619/commons-validator-1.7-sources.jar!/"/>
+	</lib>
+	<lib name="httpasyncclient-4.1.5.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpasyncclient/4.1.5/1c49db8243e070aa56312f80efb71e5805bab17b/httpasyncclient-4.1.5-sources.jar!/"/>
+	</lib>
+	<lib name="commons-beanutils-1.9.4.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-beanutils/commons-beanutils/1.9.4/f00e0ba867d1810f255876631ab440e0725a9af0/commons-beanutils-1.9.4-sources.jar!/"/>
+	</lib>
+	<lib name="xchart-3.8.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.knowm.xchart/xchart/3.8.1/db87dc49d196a52877747ddbcd26767d18381fd/xchart-3.8.1-sources.jar!/"/>
+	</lib>
+	<lib name="graphics2d-0.32.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/de.rototor.pdfbox/graphics2d/0.32/b18a322467faa346e61b978d5fd070c6d77093dd/graphics2d-0.32-sources.jar!/"/>
+	</lib>
+	<lib name="pdfbox-2.0.24.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.pdfbox/pdfbox/2.0.24/c77fcd74b0ec58a57f4b41e00326b654a962fdbb/pdfbox-2.0.24-sources.jar!/"/>
+	</lib>
+	<lib name="fontbox-2.0.24.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.pdfbox/fontbox/2.0.24/69394f594f08bed97f382bd5ae1be0e09b7d4766/fontbox-2.0.24-sources.jar!/"/>
+	</lib>
+	<lib name="commons-logging-1.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/ecf26c7507d67782a3bbd148d170b31dfad001aa/commons-logging-1.2-sources.jar!/"/>
+	</lib>
+	<lib name="snakeyaml-2.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.yaml/snakeyaml/2.0/b29e84cfffae4be26d4a4c9443d9f246ad4ec63e/snakeyaml-2.0-sources.jar!/"/>
+	</lib>
+	<lib name="generex-1.0.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.mifmif/generex/1.0.2/d1f52c4efe0b20154faf35f8df5c08a234dc41db/generex-1.0.2-sources.jar!/"/>
+	</lib>
+	<lib name="json-smart-2.4.10.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.minidev/json-smart/2.4.10/d0a77c330fc6ea765d002d598ff1e2328b5aeda7/json-smart-2.4.10-sources.jar!/"/>
+	</lib>
+	<lib name="itu-1.7.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.ethlo.time/itu/1.7.0/b1cb4dd59172587a5c0cacbe450bf8af2a47b6fe/itu-1.7.0-sources.jar!/"/>
+	</lib>
+	<lib name="dec-0.1.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.brotli/dec/0.1.2/c04c22a0f5a84e985bd04d2129638e590c1e5edc/dec-0.1.2-sources.jar!/"/>
+	</lib>
+	<lib name="javase-3.5.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.zxing/javase/3.5.1/d0007eec850be6c63bf26c55d458a3a9546581f/javase-3.5.1-sources.jar!/"/>
+	</lib>
+	<lib name="core-3.5.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.5.1/51f4833a26634c686351ca825d217bc777204e3/core-3.5.1-sources.jar!/"/>
+	</lib>
+	<lib name="allure-model-2.22.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.qameta.allure/allure-model/2.22.1/1b3d577b195af885f2fbd73d8f200fb329b6cb9b/allure-model-2.22.1-sources.jar!/"/>
+	</lib>
+	<lib name="flexmark-ext-tables-0.62.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vladsch.flexmark/flexmark-ext-tables/0.62.2/d25be2a2839235e9ab7ea1346bf9068905f45120/flexmark-ext-tables-0.62.2-sources.jar!/"/>
+	</lib>
+	<lib name="flexmark-0.62.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vladsch.flexmark/flexmark/0.62.2/9fd79d98221869b5213ae0a83cd158b535afb8ca/flexmark-0.62.2-sources.jar!/"/>
+	</lib>
+	<lib name="javax.activation-api-1.2.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.activation/javax.activation-api/1.2.0/1b4c6e77d35adab19794746d8ea753df30d77dca/javax.activation-api-1.2.0-sources.jar!/"/>
+	</lib>
+	<lib name="jakarta.mail-2.0.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sun.mail/jakarta.mail/2.0.1/1cbab8f9fe68102f3ae5c94560ecff2f77eb9e1e/jakarta.mail-2.0.1-sources.jar!/"/>
+	</lib>
+	<lib name="automaton-1.11-8.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/dk.brics.automaton/automaton/1.11-8/6bc89a2a9c9c5524aa275b572c0fd3699ff7a5be/automaton-1.11-8-sources.jar!/"/>
+	</lib>
+	<lib name="jna-platform-5.12.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna-platform/5.12.1/13250aea879918ee2cf861703733a1b1f834d13e/jna-platform-5.12.1-sources.jar!/"/>
+	</lib>
+	<lib name="jna-5.12.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna/5.12.1/a558f0c18863579764c8adcdf2312e0b9711c5af/jna-5.12.1-sources.jar!/"/>
+	</lib>
+	<lib name="accessors-smart-2.4.9.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.minidev/accessors-smart/2.4.9/d287b022105b7b85df83e254e398e6e5d415ee44/accessors-smart-2.4.9-sources.jar!/"/>
+	</lib>
+	<lib name="commons-compress-1.23.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.23.0/f459cb8b71fd712c88556e2d12bcc3914cc79153/commons-compress-1.23.0-sources.jar!/"/>
+	</lib>
+	<lib name="bcpkix-jdk18on-1.73.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcpkix-jdk18on/1.73/e11d418a87536d6f5a9537f7cb1f15a3e5c505e9/bcpkix-jdk18on-1.73-sources.jar!/"/>
+	</lib>
+	<lib name="bcutil-jdk18on-1.73.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcutil-jdk18on/1.73/573ebc8e83bc846e815e68e4c624f2d0aef941b9/bcutil-jdk18on-1.73-sources.jar!/"/>
+	</lib>
+	<lib name="bcprov-jdk18on-1.73.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk18on/1.73/665f03dc0b10ef2fc90a11c28e48c84a3a9a7323/bcprov-jdk18on-1.73-sources.jar!/"/>
+	</lib>
+	<lib name="jzlib-1.1.3.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jcraft/jzlib/1.1.3/3102d5e0e3e6cdb601b42f7bdcbff13167a2226d/jzlib-1.1.3-sources.jar!/"/>
+	</lib>
+	<lib name="okhttp-4.11.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/4.11.0/9bfc7526f84edf546cf34aaf23bdbc2b30147c34/okhttp-4.11.0-sources.jar!/"/>
+	</lib>
+	<lib name="netty-transport-native-epoll-4.1.92.Final-linux-aarch_64.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.92.Final/cb0faae66bc601102d3e492c88bcb8a1190c4bef/netty-transport-native-epoll-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="netty-transport-native-kqueue-4.1.92.Final-osx-aarch_64.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-kqueue/4.1.92.Final/787ae74453c87f0ea160bccb968e4cb12107da9b/netty-transport-native-kqueue-4.1.92.Final-sources.jar!/"/>
+	</lib>
+	<lib name="opentelemetry-extension-incubator-1.26.0-alpha.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.opentelemetry/opentelemetry-extension-incubator/1.26.0-alpha/e41208744b177c7921ed61a507e266de45006465/opentelemetry-extension-incubator-1.26.0-alpha-sources.jar!/"/>
+	</lib>
+	<lib name="properties-2.0.RC5.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ru.qatools.commons/properties/2.0.RC5/aed833bdb24c263fdacdda5e9b51163507fb4f63/properties-2.0.RC5-sources.jar!/"/>
+	</lib>
+	<lib name="jaxb-utils-1.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.baev/jaxb-utils/1.0/f32ccd8b4d6632b712b8038e6b036f4c43a46889/jaxb-utils-1.0-sources.jar!/"/>
+	</lib>
+	<lib name="httpcore-nio-4.4.13.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore-nio/4.4.13/449ca4fabab2bd78e230f89adb790946e999125/httpcore-nio-4.4.13-sources.jar!/"/>
+	</lib>
+	<lib name="httpcore-4.4.16.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.16/229e4c0eae80465381ae02adf61bca5558360777/httpcore-4.4.16-sources.jar!/"/>
+	</lib>
+	<lib name="flexmark-util-format-0.62.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vladsch.flexmark/flexmark-util-format/0.62.2/aded6673926aa21e792e083374d1b16bc3f2759f/flexmark-util-format-0.62.2-sources.jar!/"/>
+	</lib>
+	<lib name="flexmark-util-ast-0.62.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vladsch.flexmark/flexmark-util-ast/0.62.2/efe4c65eb9953ec1ed53d3217331d5514e2b0abb/flexmark-util-ast-0.62.2-sources.jar!/"/>
+	</lib>
+	<lib name="flexmark-util-builder-0.62.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vladsch.flexmark/flexmark-util-builder/0.62.2/7d1a26aad0a2367a5aafa81d770118c9dc5065b9/flexmark-util-builder-0.62.2-sources.jar!/"/>
+	</lib>
+	<lib name="flexmark-util-dependency-0.62.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vladsch.flexmark/flexmark-util-dependency/0.62.2/d277ce77dfcb7754221cb02c6f8ea3fc0a46483e/flexmark-util-dependency-0.62.2-sources.jar!/"/>
+	</lib>
+	<lib name="flexmark-util-html-0.62.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vladsch.flexmark/flexmark-util-html/0.62.2/ce2a4ebac7e5fc1b2278b1a31674766024b0ae08/flexmark-util-html-0.62.2-sources.jar!/"/>
+	</lib>
+	<lib name="flexmark-util-options-0.62.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vladsch.flexmark/flexmark-util-options/0.62.2/db6a82151c00c30eefff95fdcefa5d0c5c02d39a/flexmark-util-options-0.62.2-sources.jar!/"/>
+	</lib>
+	<lib name="flexmark-util-sequence-0.62.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vladsch.flexmark/flexmark-util-sequence/0.62.2/57e3b6fab73a73e1a1848064c9ebbfe790da1967/flexmark-util-sequence-0.62.2-sources.jar!/"/>
+	</lib>
+	<lib name="flexmark-util-collection-0.62.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vladsch.flexmark/flexmark-util-collection/0.62.2/19a0505fa542b71940563f486ff977a145804891/flexmark-util-collection-0.62.2-sources.jar!/"/>
+	</lib>
+	<lib name="flexmark-util-data-0.62.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vladsch.flexmark/flexmark-util-data/0.62.2/a259e94866b72eb68e230d21ab7edb37514f6a9/flexmark-util-data-0.62.2-sources.jar!/"/>
+	</lib>
+	<lib name="flexmark-util-misc-0.62.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vladsch.flexmark/flexmark-util-misc/0.62.2/d58ee9cde3eacde3922e4beeef4d687ac7930423/flexmark-util-misc-0.62.2-sources.jar!/"/>
+	</lib>
+	<lib name="flexmark-util-visitor-0.62.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vladsch.flexmark/flexmark-util-visitor/0.62.2/e0e51d876386588e52d87468aa4904481d7e0578/flexmark-util-visitor-0.62.2-sources.jar!/"/>
+	</lib>
+	<lib name="jakarta.activation-2.0.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sun.activation/jakarta.activation/2.0.1/5204fb651a74c03463d3e587f37c92c3506272e7/jakarta.activation-2.0.1-sources.jar!/"/>
+	</lib>
+	<lib name="VectorGraphics2D-0.13.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/de.erichseifert.vectorgraphics2d/VectorGraphics2D/0.13/ee04cd6e365a732bb8c884c36fd9782f96e01770/VectorGraphics2D-0.13-sources.jar!/"/>
+	</lib>
+	<lib name="animated-gif-lib-1.4.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.madgag/animated-gif-lib/1.4/2072f2bd4f5e85679196895c5d46ce220892db19/animated-gif-lib-1.4-sources.jar!/"/>
+	</lib>
+	<lib name="woodstox-core-6.5.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.woodstox/woodstox-core/6.5.1/f874e648191152477574183a1b01c2a7c4121ba4/woodstox-core-6.5.1-sources.jar!/"/>
+	</lib>
+	<lib name="stax2-api-4.2.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.woodstox/stax2-api/4.2.1/8d0d447792449c247f739781838cd620687074b/stax2-api-4.2.1-sources.jar!/"/>
+	</lib>
+	<lib name="jakarta.xml.bind-api-2.3.3.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/jakarta.xml.bind/jakarta.xml.bind-api/2.3.3/d83744bae211a4072c39f007000a13f501a88395/jakarta.xml.bind-api-2.3.3-sources.jar!/"/>
+	</lib>
+	<lib name="jakarta.activation-api-1.2.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/jakarta.activation/jakarta.activation-api/1.2.2/c45b5962230be8a5f93759203870c98917bb8b31/jakarta.activation-api-1.2.2-sources.jar!/"/>
+	</lib>
+	<lib name="ST4-4.0.8.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.antlr/ST4/4.0.8/6f23134f1c98dfce77f85defda31bfbce3e2a4ac/ST4-4.0.8-sources.jar!/"/>
+	</lib>
+	<lib name="antlr4-4.5.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.antlr/antlr4/4.5.1/a5738a01ca8db69d41cb0347f2cfb71f756a1d88/antlr4-4.5.1-sources.jar!/"/>
+	</lib>
+	<lib name="asm-9.3.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/9.3/ce26e415ccafa10c6624a07bdb38d969110f568f/asm-9.3-sources.jar!/"/>
+	</lib>
+	<lib name="jcommander-1.82.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.beust/jcommander/1.82/5cf95a2e18d79d404fd81263db36862287e736cc/jcommander-1.82-sources.jar!/"/>
+	</lib>
+	<lib name="jai-imageio-core-1.4.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.jai-imageio/jai-imageio-core/1.4.0/48ffdb9d2066dd196271038f6d9598aba202ae46/jai-imageio-core-1.4.0-sources.jar!/"/>
+	</lib>
+	<lib name="commons-digester-2.1.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-digester/commons-digester/2.1/32d198e5ebef012249b225118c7cb9caae56c4d8/commons-digester-2.1-sources.jar!/"/>
+	</lib>
+	<lib name="commons-collections-3.2.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-collections/commons-collections/3.2.2/78c50ebda5784937ca1615fc0e1d0cb35857d572/commons-collections-3.2.2-sources.jar!/"/>
+	</lib>
+	<lib name="okio-jvm-3.2.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio-jvm/3.2.0/6cf83b7aaa50cb33d82adae5f3a96cab9ddf1d33/okio-jvm-3.2.0-sources.jar!/"/>
+	</lib>
+	<lib name="kotlin-stdlib-jdk8-1.6.20.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.6.20/2cb762c1a14a3a958fd18d29f59491fa300e42d4/kotlin-stdlib-jdk8-1.6.20-sources.jar!/"/>
+	</lib>
+	<lib name="kotlin-stdlib-jdk7-1.6.20.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.6.20/78b7fc534a411952d7579a61d02b70fdd34aa56c/kotlin-stdlib-jdk7-1.6.20-sources.jar!/"/>
+	</lib>
+	<lib name="kotlin-stdlib-1.6.20.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.6.20/bc58085192d5abb48080e3670915133715a33ce0/kotlin-stdlib-1.6.20-sources.jar!/"/>
+	</lib>
+	<lib name="annotations-15.0.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/15.0/e46282033fcc73c8b9eb55f297b264cee3680f29/annotations-15.0-sources.jar!/"/>
+	</lib>
+	<lib name="antlr-runtime-3.5.2.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.antlr/antlr-runtime/3.5.2/5214ea45dd20d3a2e4caa6f1ad2248ad107e0daf/antlr-runtime-3.5.2-sources.jar!/"/>
+	</lib>
+	<lib name="kotlin-stdlib-common-1.6.20.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.6.20/e81e108a2817747538df29b32a151db38e5da5a2/kotlin-stdlib-common-1.6.20-sources.jar!/"/>
+	</lib>
+</component>
