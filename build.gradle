@@ -5,15 +5,28 @@ ext.buildSystemPath = "${System.env.VIVIDUS_BUILD_SYSTEM_HOME?:buildSystemRootDi
 
 apply from: "${buildSystemPath}/vividus-test-project.gradle"
 
+wrapper.gradleVersion = '7.3.3'
+
 ext {
     vividusVersion = '0.5.11'
 }
 
 dependencies {
     implementation(group: 'org.vividus', name: 'vividus', version: vividusVersion)
-    implementation(group: 'org.vividus', name: 'vividus-plugin-electron', version: vividusVersion)
-    implementation(group: 'org.vividus', name: 'vividus-plugin-rest-api', version: vividusVersion)
-    implementation(group: 'org.vividus', name: 'vividus-plugin-json', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-util', version: vividusVersion)
     implementation(group: 'org.vividus', name: 'vividus-plugin-web-app', version: vividusVersion)
-    implementation(group: 'org.vividus', name: 'vividus-plugin-mobile-app', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-plugin-rest-api', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-plugin-db', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-plugin-datetime', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-plugin-visual', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-extension-selenium', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-soft-assert', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-agent-reportportal', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-plugin-ssh', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-plugin-excel', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-plugin-saucelabs', version: vividusVersion)
+    implementation(group: 'net.jodah', name: 'failsafe', version: '2.4.1')
+    implementation(group: 'mysql', name: 'mysql-connector-java', version: '8.0.27')
+    implementation(group: 'io.github.classgraph', name: 'classgraph', version: '4.8.138')
+    implementation(group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '9.4.1.jre11')
 }
