@@ -2,7 +2,7 @@
 
 The purpose of this repository is to demo VIVIDUS capabilities via sample tests.
 
-The instructions on how to run tests can be found in the official ["Getting Started"](https://docs.vividus.dev/vividus/latest/getting-started.html) guide.
+The instructions on how to run tests can be found in the official ["Getting Started"](https://docs.vividus.dev/vividus/0.5.13/getting-started.html) guide.
 
 ## List of the available samples
 
