@@ -56,6 +56,7 @@ jobs:
         echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install "system-images;$ANDROID_EMU_TARGET;$ANDROID_EMU_TAG;$ANDROID_EMU_ABI"
         echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n "$DEVICE_NAME" -k "system-images;$ANDROID_EMU_TARGET;$ANDROID_EMU_TAG;$ANDROID_EMU_ABI" --force
         echo $ANDROID_HOME/emulator/emulator -list-avds
+        $ANDROID_HOME/platform-tools/adb start-server
         echo "Starting emulator"
         $ANDROID_HOME/emulator/emulator -avd "$DEVICE_NAME" -no-snapshot -delay-adb
         $ANDROID_HOME/platform-tools/adb wait-for-device
