@@ -3,7 +3,7 @@ name: Mobile Demo Test Run
 env:
   DEVICE_NAME: vividus-test-device
   ANDROID_EMU_ABI: x86
-  ANDROID_EMU_TARGET: android-29
+  ANDROID_EMU_TARGET: android-30
   ANDROID_EMU_TAG: default
   IOS_DEVICE_TYPE_ID: iPhone 14 Pro Max
 
