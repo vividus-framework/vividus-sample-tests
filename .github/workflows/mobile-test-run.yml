@@ -58,7 +58,7 @@ jobs:
         echo $ANDROID_HOME/emulator/emulator -list-avds
         $ANDROID_HOME/platform-tools/adb start-server
         echo "Starting emulator"
-        $ANDROID_HOME/emulator/emulator -avd "$DEVICE_NAME" -no-snapshot -delay-adb
+        nohup $ANDROID_HOME/emulator/emulator -avd "$DEVICE_NAME" -no-snapshot -delay-adb > /dev/null 2>&1 &
         $ANDROID_HOME/platform-tools/adb wait-for-device
         $ANDROID_HOME/platform-tools/adb devices -l
         echo "Emulator started"
