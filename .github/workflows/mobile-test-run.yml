@@ -67,7 +67,7 @@ jobs:
       run: xcrun simctl create "$DEVICE_NAME" "$IOS_DEVICE_TYPE_ID" | xargs xcrun simctl boot
 
     - name: Set up JDK
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
         java-version: 17
