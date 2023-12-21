@@ -1,4 +1,4 @@
-image: openjdk:17.0.2-slim
+image: openjdk:21-slim
 stages:
   - build
   - test
