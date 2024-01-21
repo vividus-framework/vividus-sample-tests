@@ -31,8 +31,9 @@ jobs:
         submodules: recursive
 
     - name: Cache tests history
-      uses: pat-s/always-upload-cache@v3.0.11
+      uses: actions/cache@v4
       with:
+        save-always: true
         path: output/history
         key: tests-history-cache
         restore-keys: |
