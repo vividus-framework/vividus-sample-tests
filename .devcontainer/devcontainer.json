@@ -1,0 +1,13 @@
+{
+  "name": "VIVIDUS",
+  "image": "mcr.microsoft.com/devcontainers/java:21",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "vividus-studio.java-home": "/usr/lib/jvm/msopenjdk-current"
+      },
+      "extensions": ["vividus.vividus-studio"]
+    }
+  },
+  "postCreateCommand": "git submodule update --init"
+}
