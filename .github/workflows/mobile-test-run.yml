@@ -58,7 +58,7 @@ jobs:
         echo "no" | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -n "$DEVICE_NAME" -k "system-images;$ANDROID_EMU_TARGET;$ANDROID_EMU_TAG;$ANDROID_EMU_ABI" --force
         echo $ANDROID_HOME/emulator/emulator -list-avds
         echo "Starting emulator"
-        nohup $ANDROID_HOME/emulator/emulator -avd "$DEVICE_NAME" -no-snapshot -no-audio -no-boot-anim -accel auto -gpu auto -qemu -lcd-density 420 > /dev/null 2>&1 &
+        nohup $ANDROID_HOME/emulator/emulator -avd "$DEVICE_NAME" -no-snapshot -no-audio -no-boot-anim -accel auto -gpu auto -qemu > /dev/null 2>&1 &
         $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 5; done; input keyevent 82'
         $ANDROID_HOME/platform-tools/adb devices -l
         echo "Emulator started"
