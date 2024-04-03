@@ -3,8 +3,8 @@ Description: Test demoing VIVIDUS capabilities for Web Applications
 Lifecycle:
 Examples:
 {transformer=FROM_LANDSCAPE}
-|search-input-field |By.fieldName(q)                 |
-|search-button      |By.xpath((//*[@name='btnK'])[1])|
+| search-input-field | fieldName(q)                  |
+| search-button      | xpath((//*[@name='btnK'])[1]) |
 
 Scenario: Verify VIVIDUS documentation is in Top 10 Google search results
 Given I am on page with URL `https://www.google.com/`
