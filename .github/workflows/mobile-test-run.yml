@@ -103,7 +103,8 @@ jobs:
                              -Pvividus.selenium.grid.capabilities.wdaLaunchTimeout=360000 \
                              -Pvividus.selenium.grid.capabilities.appium\:simulatorStartupTimeout=600000 \
                              -Pvividus.selenium.grid.capabilities.udid="$(xcrun simctl list | grep "$DEVICE_NAME" | sed 's/[^(]*(\([^()]*\)).*/\1/g')" \
-                             -Pvividus.selenium.grid.capabilities.deviceName="$DEVICE_NAME"
+                             -Pvividus.selenium.grid.capabilities.deviceName="$DEVICE_NAME" \
+                             -Pvividus.selenium.grid.http.read-timeout=PT15M
 
 
     - name: Run Android tests
