@@ -44,7 +44,9 @@ api:
 e2e:chrome:
   stage: test
   services:
-    - selenium/standalone-chrome
+    - name: selenium/standalone-chrome
+      variables:
+        SE_NODE_GRID_URL: http://selenium-standalone-chrome:4444
   script:
     - |
       ./gradlew debugStories -Pvividus.configuration.suites=web_app \
