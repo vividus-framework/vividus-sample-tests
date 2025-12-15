@@ -117,7 +117,7 @@ jobs:
 
     - name: Publish ${{ matrix.platform }} tests report
       if: always()
-      uses: actions/upload-artifact@v5
+      uses: actions/upload-artifact@v6
       with:
         name: ${{ matrix.platform }} tests report
         path: output/reports/allure
