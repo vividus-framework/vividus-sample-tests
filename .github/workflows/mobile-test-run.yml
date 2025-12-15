@@ -43,7 +43,7 @@ jobs:
         submodules: recursive
 
     - name: Cache tests history
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         save-always: true
         path: output/history
