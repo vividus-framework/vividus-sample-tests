@@ -53,7 +53,7 @@ jobs:
 
     - name: Publish REST API tests report
       if: always()
-      uses: actions/upload-artifact@v5
+      uses: actions/upload-artifact@v6
       with:
         name: REST API tests report
         path: output/reports/allure
@@ -66,7 +66,7 @@ jobs:
 
     - name: Publish web application tests report
       if: always()
-      uses: actions/upload-artifact@v5
+      uses: actions/upload-artifact@v6
       with:
         name: Web application tests report
         path: output/reports/allure
