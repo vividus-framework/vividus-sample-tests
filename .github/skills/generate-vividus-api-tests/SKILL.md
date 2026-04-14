@@ -1,8 +1,7 @@
 ---
-agent: 'agent'
-description: 'Generate VIVIDUS API test automation stories from OpenAPI/Swagger specifications. Creates executable .story files for API endpoints following VIVIDUS syntax and project conventions.'
-argument-hint: 'Provide OpenAPI specification URL or file path...'
-tools: [vividus/vividus_get_all_features]
+name: generate-vividus-api-tests
+description: 'Generate VIVIDUS API test automation stories from OpenAPI/Swagger specifications. Creates executable .story files for API endpoints following VIVIDUS syntax and project conventions. Use when: creating API tests, automating REST endpoints, generating test stories from Swagger docs.'
+argument-hint: 'Provide OpenAPI specification file path or content...'
 ---
 
 # Process Overview
@@ -17,7 +16,7 @@ tools: [vividus/vividus_get_all_features]
 
 ## Step 1: Parse OpenAPI Specification
 
-**Required Input**: OpenAPI/Swagger specification (URL or file path)
+**Required Input**: OpenAPI/Swagger specification (file path or content)
 
 ### Parse specification and extract:
 - **Base URL**: API server address
@@ -64,6 +63,7 @@ Generate tests only for user-specified combinations:
 **Before choosing any steps**, plan the logical flow of the API test to ensure correctness.
 1. Identify API operations sequence (e.g., "Authenticate", "Create resource", "Retrieve resource", "Update resource", "Delete resource")
 2. Ensure request dependencies are handled (e.g., "POST user must succeed before GET user by ID", "Authentication token required before protected endpoints")
+   - When testing GET or DELETE for a resource that may not exist, include a **prerequisite POST/creation step** within the same scenario to guarantee the resource exists. Add a `!--` comment explaining the dependency (e.g., `!-- Create order first to ensure it exists for retrieval`).
 3. Plan positive and negative scenarios:
    - **Positive**: Valid request → Expected success response (200, 201, 204)
    - **Negative**: Invalid request → Expected error response (400, 401, 403, 404, 409, 500)
@@ -71,7 +71,8 @@ Generate tests only for user-specified combinations:
 
 ### VIVIDUS API Steps Discovery
 
-1. **MUST** fetch available VIVIDUS API steps using `vividus_get_all_features()` command
+1. **MUST** fetch available VIVIDUS API steps by calling the MCP tool matching pattern `vividus_get_all_features`
+   - **ABORT** if the VIVIDUS MCP tool is not available or not connected. Instruct the user to connect the VIVIDUS MCP server before proceeding. Without this tool, valid steps cannot be discovered and stories will contain incorrect syntax.
 2. Read existing API test patterns:
    - `src/main/resources/story/**/*.story` — existing API stories
    - `src/main/resources/steps/**/*.steps` — reusable composite steps for API testing
@@ -80,7 +81,7 @@ Generate tests only for user-specified combinations:
 ⚠️ **Priority Rule:** Composite steps from `.steps` files take precedence over basic steps returned by the VIVIDUS tool. If a composite step exists that accomplishes the same action as a basic step, always use the composite step.
 
 **Strict rules:**
-1. **ONLY use steps returned by `vividus_get_all_features()`** — NEVER invent, modify, or assume steps
+1. **ONLY use steps returned by the MCP tool matching pattern `vividus_get_all_features`** — NEVER invent, modify, or assume steps
 2. **Preserve exact syntax** — do not alter step parameters or structure
 3. **If a required step is NOT available** — mark as `!-- [MISSING STEP]` in story
 4. **Do not add indentation or formatting** — maintain VIVIDUS step syntax exactly as defined
@@ -130,7 +131,7 @@ For POST/PUT/PATCH requests with JSON bodies:
 ✅ **Good** - inline JSON for simple bodies:
 
 ```gherkin
-When I set request body: {"name": "Test User", "email": "test@example.com"}
+Given request body: {"name": "Test User", "email": "test@example.com"}
 ```
 
 ### Response Validation
@@ -176,6 +177,8 @@ src/main/resources/story/generated/api/[ServiceName]/
 └── [endpoint-name].story     # VIVIDUS API story file
 ```
 
+**ServiceName**: Derive from `info.title` in the OpenAPI spec. Use PascalCase with spaces removed. Example: `"Swagger Petstore"` → `SwaggerPetstore`, `"User Management API"` → `UserManagementAPI`.
+
 **DO NOT create:**
 - Summary reports
 - README files
@@ -196,38 +199,9 @@ src/main/resources/story/generated/api/[ServiceName]/
 
 **Naming Convention**:
 - File: `[method]-[resource]-[status].story`
-- Examples: `get-users-200.story`, `post-user-201.story`, `get-user-404.story`
-
----
-
-## Quality Checklist for API Stories
-
-### Step Compliance
-
-- [ ] All steps exist in VIVIDUS API definitions or composite steps
-- [ ] Exact VIVIDUS syntax preserved (no modifications)
-- [ ] Missing steps marked with `!-- [MISSING STEP]` comment
-
-### API Test Coverage
-
-- [ ] HTTP method correct (GET, POST, PUT, DELETE, PATCH)
-- [ ] Request path matches OpenAPI specification
-- [ ] All required headers included (authorization, content-type)
-- [ ] Request body structure matches schema (for POST/PUT/PATCH)
-- [ ] Status code validation included
-- [ ] Response body validation covers critical fields
-
-### Response Validation
-
-- [ ] Status code verified
-- [ ] Required response fields validated with JSON path
-- [ ] Data types match schema (string, number, boolean, array)
-- [ ] Nested objects validated if critical to business logic
-
-### Story Quality
-
-- [ ] Meta tags: @api, @endpoint, @responseCode
-- [ ] Scenario name descriptive and includes HTTP method
-- [ ] File name follows convention: `[method]-[resource]-[status].story`
-- [ ] Comments explain any gaps or assumptions
-- [ ] Variables used for environment-specific values (base URL, API keys)
+- `[resource]` is the **last meaningful path segment** (exclude path parameters):
+  - `/store/inventory` → `inventory`
+  - `/store/order` → `order`
+  - `/store/order/{orderId}` → `order` (ignore `{orderId}`)
+  - `/pet/{petId}/uploadImage` → `uploadImage`
+- Examples: `get-inventory-200.story`, `post-order-200.story`, `get-order-404.story`
