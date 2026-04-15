@@ -1,7 +1,6 @@
 ---
-agent: 'agent'
-description: 'Generate VIVIDUS test automation stories from test cases for web applications. It enables the conversion of input test cases into executable .story files following VIVIDUS syntax and project conventions.'
-model: 'Claude Sonnet 4.5'
+name: generate-vividus-web-tests
+description: 'Generate VIVIDUS test automation stories from test cases for web applications. Creates executable .story files following VIVIDUS syntax and project conventions. Use when: automating web test cases, converting manual tests to VIVIDUS stories, generating web UI test automation.'
 argument-hint: 'Enter your test case...'
 ---
 
@@ -89,7 +88,8 @@ Do **NOT** proceed with assumptions in these situations. Stop execution and requ
 
 ### Discovery & Marking
 VIVIDUS capabilities and project discovery:
-1. Agent **MUST** fetch available VIVIDUS steps using `vividus_get_all_features()` command
+1. **MUST** fetch available VIVIDUS steps by calling the MCP tool matching pattern `vividus_get_all_features`
+   - **ABORT** if the VIVIDUS MCP tool is not available or not connected. Instruct the user to connect the VIVIDUS MCP server before proceeding. Without this tool, valid steps cannot be discovered and stories will contain incorrect syntax.
 2. Read existing resources to learn patterns and conventions:
     - `src/main/resources/story/**/*.story` — existing stories
     - `src/main/resources/steps/*.steps` — reusable composite steps
@@ -98,7 +98,7 @@ VIVIDUS capabilities and project discovery:
 ⚠️ **Priority Rule:** Composite steps from `.steps` files take precedence over basic steps returned by the VIVIDUS tool. If a composite step exists that accomplishes the same action as a basic step, always use the composite step.
 
 **Strict** rules to adhere:
-1. **ONLY use steps returned by `vividus_get_all_features()`**, **NEVER** invent, modify, or assume steps that are not explicitly listed
+1. **ONLY use steps returned by the MCP tool matching pattern `vividus_get_all_features`** — NEVER invent, modify, or assume steps that are not explicitly listed
 2. **Preserve exact syntax** - do not modify step parameters or structure
 3. **Use exact locator strategies**: `cssSelector`, `xpath`, `id`, `caseInsensitiveText`, `name`
 4. **If a required step is NOT available** - DO NOT silently ignore, mark as `[MISSING STEP]`
