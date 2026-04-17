@@ -48,6 +48,11 @@ Use Playwright MCP to execute test cases and collect element locators for VIVIDU
 
 3. **Dynamic content**: `browser_wait_for(text)` for async operations
 
+## Additional Instructions
+
+1. Variables defined in `overriding.properties` **must** be used as variables in the scenarios. Hardcoded values are not allowed.
+2. After making any updates to the project, run `./gradlew spotlessApply` to ensure code formatting consistency.
+
 ### Assumption Handling
 
 When encountering unclear steps in test cases, or when blocked the agent should:
@@ -139,7 +144,8 @@ When identifying elements, you **MUST** prefer locators in this order:
 2.  🥈 **High**: `id` (ONLY if it looks human-readable and stable, e.g., `#submit-btn`. REJECT auto-generated IDs like `#ember123`)
 3.  🥉 **Medium**: `buttonName()` or `linkText()` (Semantic and readable)
 4.  ⚠️ **Low**: `caseInsensitiveText()` or `formName/fieldName` (Use with caution for localization)
-5.  ⛔ **Last Resort**: `cssSelector` or `xpath` (Only if NO other option exists. XPath must be robust, avoiding indexing like `div[3]/span[2]`)
+5.  ⛔ **Last Resort**: `xpath` (Only if none of the above apply. Must be robust — avoid positional indexing like `div[3]/span[2]`, prefer attribute predicates like `//button[@data-test='submit']`)
+6.  🚫 **Very Last Resort**: `cssSelector` (Only if `xpath` is genuinely insufficient. Use stable structural selectors like `.form__submit` or `input[type='email']` — avoid fragile positional or generated class selectors)
 
 ### Avoid Redundant Verifications
 
@@ -177,7 +183,9 @@ When I establish baseline with name `my-add-account-page`
 ```
 
 **When to use visual testing**:
-- ✅ Verifying page layout, structure, elements and their states (3+ elements)
+- Before applying visual baseline testing, **ask the user** whether they prefer to use baselines.
+  - If the user confirms → use `When I establish baseline with name` for 3+ element verifications.
+  - If the user declines or does not respond affirmatively → use individual element checks instead; do **not** use visual baseline steps.
 - ❌ Single element verification after an action
 - ❌ Dynamic content that changes frequently
 
