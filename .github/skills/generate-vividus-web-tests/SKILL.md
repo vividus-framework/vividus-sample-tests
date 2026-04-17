@@ -131,6 +131,7 @@ In summary report for each test case step, assess coverage status and notes:
 3. **Data Tables:** Use Examples blocks for parameterized scenarios
 4. **Composite Steps:** Reuse existing composite steps; propose new ones for repeated patterns
 5. **Contextual Steps:** When using parent element context, ensure child locators are relative
+6. **No Hardcoded Values:** Do NOT hardcode sensitive or environment-specific values (credentials, URLs, API keys, etc.) directly in story steps. Use variables from properties files instead. If properties are not available, use placeholder variables and document them.
 
 ### Locator Stability Hierarchy
 When identifying elements, you **MUST** prefer locators in this order:
@@ -140,6 +141,32 @@ When identifying elements, you **MUST** prefer locators in this order:
 3.  🥉 **Medium**: `buttonName()` or `linkText()` (Semantic and readable)
 4.  ⚠️ **Low**: `caseInsensitiveText()` or `formName/fieldName` (Use with caution for localization)
 5.  ⛔ **Last Resort**: `cssSelector` or `xpath` (Only if NO other option exists. XPath must be robust, avoiding indexing like `div[3]/span[2]`)
+
+### Selecting Specific Elements with Index Filter
+
+When a page contains multiple elements matching the same locator (e.g., a list of products, rows in a table), use the `->filter.index(N)` expression appended to the locator to target a specific element by its **1-based** position.
+
+**Syntax**: `locator->filter.index(N)` where `N` starts at `1` for the first element.
+
+✅ **Good** - using `->filter.index()` to select the first item from a list:
+```gherkin
+When I save text of element located by `xpath(//div[@data-test='inventory-item-name'])->filter.index(1)` to story variable `productName`
+When I save text of element located by `xpath(//div[@data-test='inventory-item-price'])->filter.index(1)` to story variable `productPrice`
+When I click on element located by `xpath(//a[contains(@data-test, 'title-link')])->filter.index(1)`
+```
+
+❌ **Bad** - using XPath positional indexing directly (fragile):
+```gherkin
+When I save text of element located by `xpath((//div[@data-test='inventory-item-name'])[1])` to story variable `productName`
+When I click on element located by `xpath(//div[@data-test='inventory-list']/div[1]//a)`
+```
+
+**Rules:**
+1. **Prefer `->filter.index()` over XPath positional predicates** (`[1]`, `[2]`) — it is the VIVIDUS-native way to filter elements and works consistently across all locator strategies
+2. **Index is 1-based** — `->filter.index(1)` selects the first element, `->filter.index(2)` selects the second, etc.
+3. **Can be combined with any locator strategy** — works with `xpath`, `cssSelector`, `id`, `caseInsensitiveText`, etc.
+4. **Use when multiple elements match** — if only one element matches the locator, no index filter is needed
+5. **First wait, then interact** — when targeting an indexed element, first add a wait step for the base locator (without index) to ensure elements are loaded, then use the indexed locator for interaction
 
 ### Avoid Redundant Verifications
 
@@ -156,13 +183,12 @@ Then text `My Account` exists
 When I wait until element located by `caseInsensitiveText(My Account)` appears
 ```
 
-### Use Visual Testing for Multiple Element Verification
+### Verifying Multiple Elements on a Page
 
-**MANDATORY RULE**: When verifying 3 or more elements on a page (text labels, buttons, fields, etc.), you **MUST** use visual baseline testing instead of individual element checks.
+**NOTE**: Visual testing plugin is **not installed** in this project. Do **NOT** use visual baseline steps (e.g., `When I establish baseline with name`).
 
-**Why**: Visual testing is more efficient, catches unexpected UI changes, and verifies element states (enabled/disabled, selected, etc.) that individual text checks cannot capture.
+When verifying multiple elements on a page, use individual element verification steps:
 
-❌ **Bad** - verifying each element individually:
 ```gherkin
 Then text `Back to Home` exists
 Then text `Add Account` exists
@@ -170,16 +196,6 @@ Then number of elements found by `xpath(//input[@placeholder='Name'])` is equal 
 Then text `Upload logo` exists
 Then number of elements found by `buttonName(Save)` is equal to `1`
 ```
-
-✅ **Good** - visual baseline captures entire page state:
-```gherkin
-When I establish baseline with name `my-add-account-page`
-```
-
-**When to use visual testing**:
-- ✅ Verifying page layout, structure, elements and their states (3+ elements)
-- ❌ Single element verification after an action
-- ❌ Dynamic content that changes frequently
 
 ### Prefer buttonName Locator for Buttons
 
