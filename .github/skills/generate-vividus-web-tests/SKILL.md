@@ -2,6 +2,7 @@
 name: generate-vividus-web-tests
 description: 'Generate VIVIDUS test automation stories from test cases for web applications. Creates executable .story files following VIVIDUS syntax and project conventions. Use when: automating web test cases, converting manual tests to VIVIDUS stories, generating web UI test automation.'
 argument-hint: 'Enter your test case...'
+allowed-tools: zsh
 ---
 
 ## Process Overview
@@ -10,7 +11,7 @@ argument-hint: 'Enter your test case...'
 2. **Execute** test cases with Playwright
 3. **Analyze** test case coverage
 4. **Explore** VIVIDUS story writing guidelines
-5. **Generate** VIVIDUS stories & Summary report
+5. **Generate** VIVIDUS stories
 
 ---
 
@@ -34,6 +35,30 @@ When aborting, explain what is missing and request a complete test case.
 ## Step 2: Execute test cases
 
 Use Playwright MCP to execute test cases and collect element locators for VIVIDUS story generation in Step 4.
+
+## No-Playwright = No-Assumptions Policy (ABORT)
+If Playwright execution is unavailable for any reason (e.g., “browser backend is closed”, MCP not connected, navigation cannot be performed), the skill MUST NOT proceed with any “deterministic rewrite”, “known locators”, or any other inferred implementation.
+
+CRITICAL RULE: Without Playwright execution, ABORT story generation.
+
+What to do instead:
+Stop immediately and inform the user that Playwright execution is required to:
+- discover accurate locators and page structure,
+- validate current UI text and states,
+- avoid generating incorrect steps.
+
+2.Request the minimum required input to continue:
+- confirmation that Playwright/MCP is available again, or
+- the target environment URL + credentials (if needed) + existing stable locators provided by the user.
+
+Forbidden behaviors (when Playwright cannot run)
+- Using “known” application locators (e.g., SauceDemo locators) without verification
+- Guessing element identifiers, text values, or page structure
+- Generating steps based on prior knowledge of the app
+- Replacing missing exploration with JavaScript extraction or any other workaround
+
+Required abort message template:
+ABORTED: Playwright execution is not available (browser backend is closed). I cannot reliably discover locators or validate UI behavior, so I will not generate or rewrite VIVIDUS steps using assumptions. Please restore Playwright/MCP connectivity and rerun, or provide verified locators and required environment details.
 
 ### Execution process
 
@@ -156,6 +181,46 @@ Then text `My Account` exists
 When I wait until element located by `caseInsensitiveText(My Account)` appears
 ```
 
+### Prefer Context + Text Assertions for UI Text Verification (Do NOT Use JavaScript Extraction)
+
+When a test case step requires verifying that any UI text matches an expected value (e.g., labels, headers, messages, list items, table cells, tooltip text, etc.):
+
+DO NOT implement it using JavaScript extraction steps (e.g., When I execute javascript ... and save result...) when the intent is to validate visible text on the page.
+
+MANDATORY RULE: Use context switching + text verification steps instead.
+
+Required sequence:
+1. Switch context to the smallest stable container that holds the expected text:
+```gherkin
+When I change context to element `<container-locator>`
+```
+
+2. Verify the text using text assertion steps:
+```gherkin
+Then text `<expected-text>` exists
+```
+or (when pattern-based check is needed)
+```gherkin
+Then text matches `<regex>`
+```
+Context reset rule (avoid unnecessary context switching):
+After completing a check within a context, DO NOT reset context back to the page if you are going to switch context to another element immediately after.
+
+MANDATORY RULE: Reset context back to page level only when:
+- all context-specific checks are complete, or
+- there is a valid need to interact/verify at the page level.
+
+This prevents redundant steps and keeps scenarios concise and stable.
+
+Example (verify text in a specific page area):
+```gherkin
+When I change context to element `cssSelector(div.user1-details)`
+Then text `John Smith` exists
+When I change context to element `cssSelector(div.user2-details)`
+Then text `Tom Johns` exists
+When I reset context
+```
+
 ### Use Visual Testing for Multiple Element Verification
 
 **MANDATORY RULE**: When verifying 3 or more elements on a page (text labels, buttons, fields, etc.), you **MUST** use visual baseline testing instead of individual element checks.
@@ -239,7 +304,31 @@ When I enter `${campaignName}` in field located by `xpath(//input[@placeholder='
 - ❌ Before every field on the same page (only first element needed)
 - ❌ Between consecutive actions on already-loaded elements
 
-## Step 5: Generate VIVIDUS story & Summary report
+### Prefer URL Validation for “Verify <Page> Page Is Displayed” (When URL Is Descriptive)
+
+When a test case step says “Verify <Page> page is displayed/loaded/opened”, you MUST first consider validating the page by checking the current page URL, if the URL contains a clear, stable, and reasonable page identifier (e.g., /inventory, /login, /checkout, /users).
+
+Priority Rule: URL-based validation takes precedence over element-based validation when the URL is descriptive and stable.
+
+Required sequence:
+1. Validate by URL first (preferred): Use a URL verification step if available in the discovered VIVIDUS steps
+2. Only if URL validation is not possible or URL is not descriptive, validate by waiting for a page-unique element
+
+Example (Inventory page):
+
+Preferred (URL-based):
+```gherkin
+Then `${current-page-url}` matches `.+/inventory.+`
+or
+Then `#{extractPathFromUrl(${current-page-url})}` is equal to `/inventory.html`
+```
+
+Fallback (element-based):
+```gherkin
+When I wait until element located by `cssSelector([data-test='product-sort-container'])` appears
+```
+
+## Step 5: Generate VIVIDUS story
 
 ### Output Folder Structure
 Create a new folder for each test case in project root for user review:
@@ -247,9 +336,8 @@ Create a new folder for each test case in project root for user review:
 ```
 src/main/resources/story/generated/TC-XXXXX-[TestName]/
 ├── [TestName].story          # VIVIDUS story file
-├── test-data/                # Generated test data (images, files, etc.)
-│   └── [any required files]
-└── summary.md                # Coverage report and findings
+└── test-data/                # Generated test data (images, files, etc.)
+    └── [any required files]
 ```
 
 User will review and move story files to appropriate place after approval.
@@ -257,8 +345,9 @@ User will review and move story files to appropriate place after approval.
 **DO NOT create:**
 - Quick start guides
 - README files
+- Summary reports
 - Additional documentation
-- Any other markdown files beyond mentioned ones
+- Any markdown files
 
 ### Output Files
 
@@ -301,64 +390,7 @@ When I wait until element located by `caseInsensitiveText(Success)` appears in `
 - Use Examples tables to consolidate similar test cases with different data
 - Split complex test cases into multiple focused scenarios if needed
 
-#### File 2: Summary Report
-**Location**: `src/main/resources/story/generated/TC-XXXXX-[TestName]/summary.md`
-
-Summary report structure
-
-```markdown
-# Test Case [ID] - Summary
-
-## Test Information
-- **Test Case ID**: [Test case Id]
-- **Title**: [Test case title]
-- **Execution Date**: [Date]
-- **Status**: [PASSED | PASSED WITH GAPS | FAILED]
-
-## Coverage Report
-
-| # | Test Case Step | Expected Result | Actual Result | Status | Notes |
-|---|----------------|-----------------|---------------|--------|-------|
-| 1 | [Step description] | [Expected] | [Actual observed] | ✅/⚠️/❌/🔵 | [Implementation notes or gaps] |
-| 2 | ... | ... | ... | ... | ... |
-
-**Status Legend**: ✅ Covered | ⚠️ Gap | ❌ Discrepancy | 🔵 Assumed
-
-### Coverage Summary
-- **Total Steps**: X
-- **Fully Covered**: X (✅)
-- **Gaps (Missing Steps)**: X (⚠️)
-- **Discrepancies**: X (❌)
-- **Assumed**: X (🔵)
-- **Coverage Percentage**: X%
-
-## Discrepancies Found
-
-### [Issue Title]
-- **Step #**: X
-- **Expected**: [What test case says]
-- **Actual**: [What was observed]
-- **Impact**: [High | Medium | Low]
-- **Recommendation**: [Action needed]
-
-## Missing VIVIDUS Steps
-
-List any actions that cannot be automated with available steps:
-
-| Action Needed | Workaround | Priority |
-|---------------|------------|----------|
-| [Action] | [Possible workaround or "None"] | [High/Medium/Low] |
-
-## Assumptions Made
-
-**IMPORTANT: Review all assumptions below and validate they match intended behavior.**
-
-| Step # | Original TC Instruction | Assumption Made | Rationale | Needs Validation |
-|--------|------------------------|-----------------|-----------|------------------|
-| X | [What TC said] | [What was assumed] | [Why this assumption] | ⚠️ YES |
-```
-
-#### File 3: Test Data (if needed)
+#### File 2: Test Data (if needed)
 **Location**: `src/main/resources/story/generated/TC-XXXXX-[TestName]/test-data/`
 - Upload images, JSON files, or any test data generated during exploration
 - Reference in story using relative path: `test-data/[filename]`
