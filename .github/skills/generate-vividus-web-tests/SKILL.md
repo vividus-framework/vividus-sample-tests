@@ -1,4 +1,4 @@
----
+﻿---
 name: generate-vividus-web-tests
 description: 'Generate VIVIDUS test automation stories from test cases for web applications. Creates executable .story files following VIVIDUS syntax and project conventions. Use when: automating web test cases, converting manual tests to VIVIDUS stories, generating web UI test automation.'
 argument-hint: 'Enter your test case...'
@@ -10,7 +10,7 @@ argument-hint: 'Enter your test case...'
 2. **Execute** test cases with Playwright
 3. **Analyze** test case coverage
 4. **Explore** VIVIDUS story writing guidelines
-5. **Generate** VIVIDUS stories & Summary report
+5. **Generate** VIVIDUS stories
 
 ---
 
@@ -35,6 +35,17 @@ When aborting, explain what is missing and request a complete test case.
 
 Use Playwright MCP to execute test cases and collect element locators for VIVIDUS story generation in Step 4.
 
+## No-Playwright = User Decision Policy
+
+If Playwright execution is unavailable (browser backend closed, MCP disconnected, navigation failed), the skill must not claim live validation or silently use inferred locators.
+
+### Required Behavior
+
+Inform the user that live UI discovery and validation cannot be performed, then offer:
+1. **Retry later** after Playwright/MCP is restored (**recommended**)
+2. **Continue with known locators** marked as **unverified**
+
+
 ### Execution process
 
 1. **Navigate**: `browser_navigate(url)` - URL from test case or user prompt
@@ -53,15 +64,7 @@ Use Playwright MCP to execute test cases and collect element locators for VIVIDU
 When encountering unclear steps in test cases, or when blocked the agent should:
 1. Proceed with reasonable assumption or workaround
 2. Document assumption or workaround clearly
-3. Flag for user validation in summary report
 
-Example assumptions:
-| Situation | Assumption Made |Marked As |
-|-----------|-----------------|-----------|
-| Button text unclear in TC | Used actual text from app exploration | 🔵 Assumed |
-| Sort order not specified | Assumed descending by date (most recent first) | 🔵 Assumed |
-| Element locator not unique | Used more specific parent context | 🔵 Assumed |
-| Expected state not defined | Assumed element should be visible and enabled | 🔵 Assumed |
 
 ### When to STOP and Ask (Do NOT Assume)
 
@@ -103,24 +106,6 @@ VIVIDUS capabilities and project discovery:
 3. **Use exact locator strategies**: `cssSelector`, `xpath`, `id`, `caseInsensitiveText`, `name`
 4. **If a required step is NOT available** - DO NOT silently ignore, mark as `[MISSING STEP]`
 
-### Coverage Mapping
-
-In summary report for each test case step, assess coverage status and notes:
-
-| TC Step | Action | Status | Notes |
-|---------|--------|--------|-------|
-| 1 | Log in as Global Admin | ✅ Covered | Requires navigation + cookie/auth handling |
-| 2 | Navigate to Companies page | ✅ Covered | Click + wait for page load |
-| 3 | Verify tooltip on hover | ⚠️ Gap | No tooltip verification step in VIVIDUS |
-| 4 | Drag item to new position | ✅ Covered | Single drag-and-drop step available |
-| 5 | Verify sorting order | 🔵 Assumed | Unclear if alphabetical or by date |
-| 6 | Check error message style | ❌ Discrepancy | Expected red text, actual is orange |
-
-### Coverage Status Legend
-- ✅ **Covered** - Can be implemented with available VIVIDUS steps
-- ⚠️ **Gap** - No VIVIDUS step available, manual intervention needed
-- ❌ **Discrepancy** - Expected behavior differs from actual
-- 🔵 **Assumed** - Input was unclear or incomplete; a best-guess decision was made (requires validation)
 
 ## Step 4: VIVIDUS Story Guidelines
 
@@ -131,6 +116,7 @@ In summary report for each test case step, assess coverage status and notes:
 3. **Data Tables:** Use Examples blocks for parameterized scenarios
 4. **Composite Steps:** Reuse existing composite steps; propose new ones for repeated patterns
 5. **Contextual Steps:** When using parent element context, ensure child locators are relative
+6. **No step-by-step comments:** Do NOT add `!--` comments before each step describing what it does (e.g., `!-- Step 1: Log in`). Only use `!--` comments for `[MISSING STEP]`, `[ASSUMPTION]`, or `[DISCREPANCY]` markers.
 
 ### Locator Stability Hierarchy
 When identifying elements, you **MUST** prefer locators in this order:
@@ -155,6 +141,75 @@ Then text `My Account` exists
 ```gherkin
 When I wait until element located by `caseInsensitiveText(My Account)` appears
 ```
+### Verify text using text assertion steps
+
+Verify the text using text assertion steps:
+```gherkin
+Then text `<expected-text>` exists
+```
+
+The `Then text` step accepts **plain text only** — do NOT wrap it in `caseSensitiveText()` or `caseInsensitiveText()`. Those are **locator filters** and only work in locator-based steps (e.g., `When I click on element located by`).
+
+❌ **Bad** — locator filter in a text step:
+```gherkin
+Then text `caseSensitiveText(Sauce Labs Bolt T-Shirt)` exists
+```
+
+✅ **Good** — plain text:
+```gherkin
+Then text `Sauce Labs Bolt T-Shirt` exists
+```
+
+### Where `caseSensitiveText()` / `caseInsensitiveText()` ARE valid
+
+Use them **only** in locator-based steps:
+```gherkin
+When I click on element located by `caseSensitiveText(Save)`
+When I wait until element located by `caseInsensitiveText(My Account)` appears
+Then number of elements found by `caseInsensitiveText(Submit)` is equal to `1`
+```
+
+Text comparison strategy for **locator-based steps**:
+
+Default: use `caseSensitiveText(..)` when the text is part of the UI specification (labels, buttons, headers, brand names, statuses, fixed UI wording).
+
+Use `caseInsensitiveText(..)` only when case is not relevant and the text is dynamic or content-driven.
+
+Typical cases for `caseInsensitiveText(..)`:
+- Search results / dynamically generated lists
+- CMS-driven or backend-provided content
+- Notifications / informational messages where formatting may vary
+- API-driven or external system data
+- Cases where UI text is not strictly defined by design specifications
+
+### Verify Page by URL (Mandatory)
+
+When a test case step says "Verify <Page> page is displayed/loaded/opened", you **MUST** validate the page by checking the current page URL using `${current-page-url}`. Do **NOT** verify the page by checking text or elements on the page.
+
+✅ **Good** - URL validation:
+```gherkin
+Then `${current-page-url}` matches `.+/inventory\.html`
+```
+
+```gherkin
+Then `${current-page-url}` matches `.+/inventory-item\.html\?id=1`
+```
+
+❌ **Bad** - text/element-based page verification:
+```gherkin
+Then text `Products` exists
+```
+
+```gherkin
+When I wait until element located by `caseInsensitiveText(Your Cart)` appears
+```
+
+**Rules:**
+1. Always use ``Then `${current-page-url}` matches `<regex>` `` to verify the correct page is displayed
+2. The regex should match the distinctive part of the URL path (e.g., `/cart\.html`, `/inventory-item\.html`)
+3. Never use text assertions or element waits as a substitute for page verification
+
+## Step 5: Generate VIVIDUS story
 
 ### Prefer buttonName Locator for Buttons
 
@@ -170,34 +225,58 @@ When I click on element located by `xpath(//button[contains(text(),'Save')])`
 When I click on element located by `buttonName(Save)`
 ```
 
-### Synchronize After Navigation
+### Synchronize After Page Navigation
 
-**CRITICAL RULE**: When navigating to a new page or opening a new tab, **ALWAYS** add a wait step for FIRST **interactive element** on that page or tab. This ensures the page has fully loaded and all subsequent interactive elements are available.
+**CRITICAL RULE**: After navigating to a new page, synchronize using `When I wait until element located by \`<page-unique-element>\` appears` followed by a URL check with `Then \`${current-page-url}\` matches \`<regex>\``.
 
-**Why**: Waiting for the first interactive element on a page guarantees that:
-- The page DOM is fully rendered
-- JavaScript has executed and initialized components
-- All form fields, buttons, and other interactive elements are ready
-- Subsequent steps won't fail due to elements not being available yet
+A "new page load" occurs when:
+- A navigation link is clicked that loads a different URL
+- A button click opens a new tab or modal
+- A form submission redirects to a different page
 
-✅ **Good** - wait for first interactive element after navigation:
+**Synchronization method** — after every navigation action use this two-step pattern:
+1. `When I wait until element located by \`<first-unique-element-on-target-page>\` appears` — waits for the new page to render
+2. `Then \`${current-page-url}\` matches \`<regex>\`` — confirms the correct page loaded
+
+The wait step picks a **single element unique to the target page** (e.g., a page heading, a key form field, or a data-test marker). The URL check confirms the navigation landed on the expected route.
+
+If the target URL is not descriptive (e.g., dynamic hash-only routes), the wait step alone is sufficient.
+
+✅ **Good** - wait + URL check after navigation:
 ```gherkin
-When I click on element located by `buttonName(Add Product)`
-When I wait until element located by `caseInsensitiveText(Create Product)` appears
+When I click on element located by `cssSelector([data-test="item-1-title-link"])`
+When I wait until element located by `id(back-to-products)` appears
+Then `${current-page-url}` matches `.+/inventory-item\.html\?id=1`
+When I click on element located by `id(add-to-cart)`
+```
 
-!-- Now safe to interact with form fields without additional waits
-When I enter `${campaignName}` in field located by `xpath(//input[@name='name'])`
-When I enter `${campaignName}` in field located by `xpath(//input[@placeholder='URL'])`
+✅ **Good** - wait + URL check after opening cart:
+```gherkin
+When I click on element located by `cssSelector([data-test="shopping-cart-link"])`
+When I wait until element located by `cssSelector([data-test="cart-list"])` appears
+Then `${current-page-url}` matches `.+/cart\.html`
+Then text `Sauce Labs Bolt T-Shirt` exists
+```
+
+❌ **Bad** - URL check only, no wait (page may not be fully rendered):
+```gherkin
+When I click on element located by `cssSelector([data-test="item-1-title-link"])`
+Then `${current-page-url}` matches `.+/inventory-item\.html\?id=1`
+```
+
+❌ **Bad** - wait only, no URL check (doesn't confirm correct page):
+```gherkin
+When I click on element located by `cssSelector([data-test="item-1-title-link"])`
+When I wait until element located by `id(back-to-products)` appears
 ```
 
 ❌ **Bad** - no synchronization after navigation:
 ```gherkin
 When I click on element located by `buttonName(Add Product)`
-!-- Missing wait - next step may fail if page hasn't loaded
 When I enter `${campaignName}` in field located by `xpath(//input[@name='name'])`
 ```
 
-❌ **Bad** - waiting before every field (unnecessary):
+❌ **Bad** - wait before every element on an already-loaded page:
 ```gherkin
 When I click on element located by `buttonName(Create Product)`
 When I wait until element located by `xpath(//input[@name='name'])` appears
@@ -206,30 +285,45 @@ When I wait until element located by `xpath(//input[@placeholder='URL'])` appear
 When I enter `${campaignName}` in field located by `xpath(//input[@placeholder='URL'])`
 ```
 
-**When to wait:**
-- ✅ After clicking navigation links (new page loads)
-- ✅ After clicking buttons that open new tabs or modals
-- ✅ After dropdown selections that dynamically load/show new fields
-- ✅ After form submissions that redirect to different pages
-- ❌ Before every field on the same page (only first element needed)
-- ❌ Between consecutive actions on already-loaded elements
-
-## Step 5: Generate VIVIDUS story & Summary report
-
-### Output Folder Structure
-Create a new folder for each test case in project root for user review:
-
-```
-src/main/resources/story/generated/TC-XXXXX-[TestName]/
-├── [TestName].story          # VIVIDUS story file
-├── test-data/                # Generated test data (images, files, etc.)
-│   └── [any required files]
-└── summary.md                # Coverage report and findings
+❌ **Bad** - wait used as verification on an already-loaded page (use assertion instead):
+```gherkin
+When I click on element located by `id(add-to-cart)`
+When I wait until element located by `id(remove)` appears
 ```
 
-User will review and move story files to appropriate place after approval.
+✅ **Good** - verify element on same page with assertion:
+```gherkin
+When I click on element located by `id(add-to-cart)`
+Then number of elements found by `id(remove)` is equal to `1`
+```
 
-**DO NOT create:**
+**Summary:**
+| Situation | Approach |
+|-----------|----------|
+| After click that navigates to a new page/URL | ✅ `When I wait until element located by \`<element>\` appears` + ``Then `${current-page-url}` matches `<regex>` `` |
+| After click that opens a new tab or modal | ✅ Wait for first unique element + URL check |
+| Verifying element state on the current page | ❌ No wait — use `Then` assertion steps |
+| Between consecutive actions on same page | ❌ No wait |
+| Before every field on the same form | ❌ No wait |
+
+## Step 5: Generate VIVIDUS story
+
+### Output Location
+
+Save generated story files to:
+```
+src/main/resources/story/web_app/[TestName].story
+```
+
+### Fix Formatting Violations
+
+After generating or modifying story files, run the following command to auto-fix all formatting violations:
+```
+gradlew.bat spotlessApply
+```
+
+**DO NOT create (neither as files nor in the chat response):**
+- Summary report, coverage table, or step mapping table
 - Quick start guides
 - README files
 - Additional documentation
@@ -238,7 +332,7 @@ User will review and move story files to appropriate place after approval.
 ### Output Files
 
 #### File 1: VIVIDUS Story
-**Location**: `src/main/resources/story/generated/TC-XXXXX-[TestName]/[TestName].story`
+**Location**: `src/main/resources/story/web_app/[TestName].story`
 
 ```gherkin
 Meta:
@@ -250,8 +344,8 @@ Meta:
 Scenario: [Descriptive scenario name]
 [Steps using ONLY available VIVIDUS syntax]
 
-!-- [MISSING STEP] Comment for any gaps
-!-- [ASSUMPTION] Comment for any assumptions made - REQUIRES VALIDATION
+!-- [MISSING STEP] Comment for any gaps (only if applicable)
+!-- [ASSUMPTION] Comment for any assumptions made - REQUIRES VALIDATION (only if applicable)
 ```
 
 **Meta Tag Guidelines:**
@@ -273,72 +367,12 @@ When I wait until element located by `caseInsensitiveText(Success)` appears in `
 
 **Scenario Mapping:**
 - One test case typically maps to one scenario
+- Split test cases into **separate scenarios by logical action** (e.g., login, verify inventory page, verify product details, return to inventory)
 - Use Examples tables to consolidate similar test cases with different data
-- Split complex test cases into multiple focused scenarios if needed
+- **No duplicate scenarios** — each scenario must be unique and included only once per story. Do not repeat the same logical flow in multiple scenarios
 
-#### File 2: Summary Report
-**Location**: `src/main/resources/story/generated/TC-XXXXX-[TestName]/summary.md`
 
-Summary report structure
 
-```markdown
-# Test Case [ID] - Summary
-
-## Test Information
-- **Test Case ID**: [Test case Id]
-- **Title**: [Test case title]
-- **Execution Date**: [Date]
-- **Status**: [PASSED | PASSED WITH GAPS | FAILED]
-
-## Coverage Report
-
-| # | Test Case Step | Expected Result | Actual Result | Status | Notes |
-|---|----------------|-----------------|---------------|--------|-------|
-| 1 | [Step description] | [Expected] | [Actual observed] | ✅/⚠️/❌/🔵 | [Implementation notes or gaps] |
-| 2 | ... | ... | ... | ... | ... |
-
-**Status Legend**: ✅ Covered | ⚠️ Gap | ❌ Discrepancy | 🔵 Assumed
-
-### Coverage Summary
-- **Total Steps**: X
-- **Fully Covered**: X (✅)
-- **Gaps (Missing Steps)**: X (⚠️)
-- **Discrepancies**: X (❌)
-- **Assumed**: X (🔵)
-- **Coverage Percentage**: X%
-
-## Discrepancies Found
-
-### [Issue Title]
-- **Step #**: X
-- **Expected**: [What test case says]
-- **Actual**: [What was observed]
-- **Impact**: [High | Medium | Low]
-- **Recommendation**: [Action needed]
-
-## Missing VIVIDUS Steps
-
-List any actions that cannot be automated with available steps:
-
-| Action Needed | Workaround | Priority |
-|---------------|------------|----------|
-| [Action] | [Possible workaround or "None"] | [High/Medium/Low] |
-
-## Assumptions Made
-
-**IMPORTANT: Review all assumptions below and validate they match intended behavior.**
-
-| Step # | Original TC Instruction | Assumption Made | Rationale | Needs Validation |
-|--------|------------------------|-----------------|-----------|------------------|
-| X | [What TC said] | [What was assumed] | [Why this assumption] | ⚠️ YES |
-```
-
-#### File 3: Test Data (if needed)
-**Location**: `src/main/resources/story/generated/TC-XXXXX-[TestName]/test-data/`
-- Upload images, JSON files, or any test data generated during exploration
-- Reference in story using relative path: `test-data/[filename]`
-
----
 
 ## Quality Checklist
 
@@ -363,4 +397,3 @@ List any actions that cannot be automated with available steps:
 - [ ] Assumptions marked with `[ASSUMPTION]` comments
 - [ ] Discrepancies marked with `[DISCREPANCY]` comments
 - [ ] Items requiring validation clearly listed
-- [ ] All report sections completed
