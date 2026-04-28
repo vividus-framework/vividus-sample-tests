@@ -11,9 +11,8 @@ By default the project is not configured to run any test suite: an attempt to ex
 ### Local test execution
 | Test Suite            | Command |
 |-----------------------|---------|
-| REST API tests        | macOS/Linux:<br/><pre>./gradlew runStories -Pvividus.configuration.suites=rest_api</pre><br/>Windows:<br/><pre>gradlew runStories -Pvividus.configuration.suites=rest_api</pre> |
-||
-| Web Application tests | macOS/Linux:<br/><pre>./gradlew runStories -Pvividus.configuration.suites=web_app -Pvividus.configuration.profiles=web/desktop/chrome</pre><br/>Windows:<br/><pre>gradlew runStories -Pvividus.configuration.suites=web_app -Pvividus.configuration.profiles=web/desktop/chrome</pre> |
+| REST API tests        | macOS/Linux:<br/><pre>./gradlew runStories -Pvividus.configuration-set.active=rest-api</pre><br/>Windows:<br/><pre>gradlew runStories -Pvividus.configuration-set.active=rest-api</pre> |
+| Web Application tests | macOS/Linux:<br/><pre>./gradlew runStories -Pvividus.configuration-set.active=web-app</pre><br/>Windows:<br/><pre>gradlew runStories -Pvividus.configuration-set.active=web-app</pre> |
 
 ### Test execution in CI
 
