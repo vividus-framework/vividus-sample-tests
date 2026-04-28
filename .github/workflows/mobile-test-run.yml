@@ -96,8 +96,7 @@ jobs:
     - name: Run iOS tests
       if: matrix.platform == 'iOS'
       run: |
-        ./gradlew runStories -Pvividus.configuration.suites=mobile_app/ios \
-                             -Pvividus.configuration.profiles=mobile_app/local2,mobile_app/ios \
+        ./gradlew runStories -Pvividus.configuration-set.active=ios-app \
                              -Pvividus.allure.history-directory=output/history/ios \
                              -Pvividus.selenium.grid.capabilities.showXcodeLog=true \
                              -Pvividus.selenium.grid.capabilities.wdaLaunchTimeout=360000 \
@@ -110,8 +109,7 @@ jobs:
     - name: Run Android tests
       if: matrix.platform == 'Android'
       run: |
-        ./gradlew runStories -Pvividus.configuration.suites=mobile_app/android \
-                             -Pvividus.configuration.profiles=mobile_app/local2,mobile_app/android \
+        ./gradlew runStories -Pvividus.configuration-set.active=android-app \
                              -Pvividus.allure.history-directory=output/history/android \
                              -Pvividus.selenium.grid.capabilities.deviceName="$DEVICE_NAME"
 
