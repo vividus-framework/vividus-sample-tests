@@ -1,0 +1,5 @@
+Composite: When I get JSON schema for resource `$resource` and validate JSON `$json` against it
+When I save JSON element from `<json>` by JSON path `$` to scenario variable `<resource>-response`
+When I execute HTTP GET request for resource with URL `https://swapi.info/api/<resource>/schema`
+Then `${responseCode}` is equal to `200`
+Then JSON `${<resource>-response}` is valid against schema `${response}`
