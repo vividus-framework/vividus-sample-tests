@@ -1,0 +1,4 @@
+Composite: When I login to web app with username `${userName}` and password `${userPassword}`
+When I enter `<userName>` in field located by `cssSelector(input[name="username" i])`
+When I enter `<userPassword>` in field located by `cssSelector(input[name="password" i])`
+When I click on element located by `xpath(//button[contains(.,'Log')])`
