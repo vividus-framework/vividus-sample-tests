@@ -48,9 +48,8 @@ jobs:
 
     - name: Run Electron tests
       run: |
-        ./gradlew runStories -Pvividus.configuration.suites=electron \
-                             -Pvividus.configuration.profiles=desktop/electron,web/desktop/chrome
-
+        ./gradlew runStories -Pvividus.configuration-set.active=electron
+        
     - name: Publish Electron tests report
       if: always()
       uses: actions/upload-artifact@v6
