@@ -27,4 +27,4 @@ jobs:
         cache: 'gradle'
 
     - name: Build
-      run: ./gradlew build
+      run: ./gradlew build -Pvividus.configuration-set.active=rest-api

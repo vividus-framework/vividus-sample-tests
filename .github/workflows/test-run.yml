@@ -48,7 +48,7 @@ jobs:
 
     - name: Run REST API tests
       run: |
-        ./gradlew runStories -Pvividus.configuration.suites=rest_api \
+        ./gradlew runStories -Pvividus.configuration-set.active=rest-api \
                              -Pvividus.allure.history-directory=output/history/rest-api-tests
 
     - name: Publish REST API tests report
@@ -60,8 +60,8 @@ jobs:
 
     - name: Run web application tests
       run: |
-        ./gradlew runStories -Pvividus.configuration.suites=web_app \
-                             -Pvividus.configuration.profiles=web/headless/chrome \
+        ./gradlew runStories -Pvividus.configuration-set.active=web-app \
+                             -Pvividus.configuration-set.web-app.profiles=web/headless/chrome \
                              -Pvividus.allure.history-directory=output/history/web-app-tests
 
     - name: Publish web application tests report
