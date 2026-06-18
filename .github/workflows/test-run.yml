@@ -62,6 +62,7 @@ jobs:
       run: |
         ./gradlew runStories -Pvividus.configuration.suites=web_app \
                              -Pvividus.configuration.profiles=web/headless/chrome \
+                             -Pvividus.web.driver.chrome.command-line-arguments="--headless --hide-scrollbars --ignore-certificate-errors --window-size=\${web.headless.chrome.window-size}" \
                              -Pvividus.allure.history-directory=output/history/web-app-tests
 
     - name: Publish web application tests report
