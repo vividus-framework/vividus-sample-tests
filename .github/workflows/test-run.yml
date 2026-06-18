@@ -62,7 +62,14 @@ jobs:
       run: |
         ./gradlew runStories -Pvividus.configuration.suites=web_app \
                              -Pvividus.configuration.profiles=web/headless/chrome \
-                             -Pvividus.allure.history-directory=output/history/web-app-tests
+                             -Pvividus.allure.history-directory=output/history/web-app-tests \
+                             -Pvividus.configuration.profiles=web/desktop/chrome -Pvividus.system.webdriver.chrome.verboseLogging=true \
+                             -Pvividus.system.webdriver.chrome.logfile=/home/runner/work/vividus-sample-tests/vividus-sample-tests/output/chromedriver.log
+    - name: Print log
+      if: always()
+      run: |
+        cat /home/runner/work/vividus-sample-tests/vividus-sample-tests/output/chromedriver.log
+
 
     - name: Publish web application tests report
       if: always()
