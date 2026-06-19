@@ -100,6 +100,8 @@ jobs:
         arch: arm64-v8a
         target: google_apis
         avd-name: ${{ env.DEVICE_NAME }}
+        emulator-boot-timeout: 720
+        emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -accel off
         disable-animations: true
         script: |
           ./gradlew runStories -Pvividus.configuration.suites=mobile_app/android \
