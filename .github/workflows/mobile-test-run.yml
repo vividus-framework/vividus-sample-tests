@@ -2,9 +2,9 @@ name: Mobile Demo Test Run
 
 env:
   DEVICE_NAME: vividus-test-device
-  ANDROID_EMU_ABI: x86
-  ANDROID_EMU_TARGET: android-29
-  ANDROID_EMU_TAG: default
+  ANDROID_EMU_ABI: arm64-v8a
+  ANDROID_EMU_TARGET: android-34
+  ANDROID_EMU_TAG: google_apis
   IOS_DEVICE_TYPE_ID: iPhone 14 Pro Max
 
 on:
@@ -58,8 +58,9 @@ jobs:
         echo "no" | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -n "$DEVICE_NAME" -k "system-images;$ANDROID_EMU_TARGET;$ANDROID_EMU_TAG;$ANDROID_EMU_ABI" --force
         echo $ANDROID_HOME/emulator/emulator -list-avds
         echo "Starting emulator"
-        nohup $ANDROID_HOME/emulator/emulator -avd "$DEVICE_NAME" -no-snapshot -delay-adb > /dev/null 2>&1 &
+        nohup $ANDROID_HOME/emulator/emulator -avd "$DEVICE_NAME" -no-snapshot -no-window -delay-adb > /dev/null 2>&1 &
         $ANDROID_HOME/platform-tools/adb wait-for-device
+        until $ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed 2>/dev/null | grep -q "1"; do sleep 2; done
         $ANDROID_HOME/platform-tools/adb devices -l
         echo "Emulator started"
 
