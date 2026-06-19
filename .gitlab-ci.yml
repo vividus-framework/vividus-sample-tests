@@ -1,4 +1,4 @@
-image: openjdk:21-slim
+image: eclipse-temurin:21-jre-alpine
 stages:
   - build
   - test
@@ -51,6 +51,7 @@ e2e:chrome:
     - |
       ./gradlew debugStories -Pvividus.configuration.suites=web_app \
                              -Pvividus.configuration.profiles=web/headless/chrome \
+                             -Pvividus.web.driver.chrome.command-line-arguments="--headless --hide-scrollbars --ignore-certificate-errors --window-size=\${web.headless.chrome.window-size}" \
                              -Pvividus.selenium.grid.enabled=true \
                              -Pvividus.selenium.grid.url=http://selenium-standalone-chrome:4444/wd/hub \
                              -Pvividus.selenium.grid.capabilities.platformName=linux \
