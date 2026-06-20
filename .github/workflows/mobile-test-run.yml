@@ -114,7 +114,7 @@ jobs:
         arch: x86_64
         target: google_apis
         avd-name: ${{ env.DEVICE_NAME }}
-        emulator-boot-timeout: 420
+        emulator-boot-timeout: 240
         emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
         disable-animations: true
         script: |
