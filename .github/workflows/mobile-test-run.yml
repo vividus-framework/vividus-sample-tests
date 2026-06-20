@@ -46,6 +46,13 @@ jobs:
       with:
         submodules: recursive
 
+    - name: Enable KVM
+      if: matrix.platform == 'Android'
+      run: |
+        echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+        sudo udevadm control --reload-rules
+        sudo udevadm trigger --name-match=kvm
+
     - name: Cache tests history
       uses: actions/cache@v5
       with:
@@ -82,13 +89,6 @@ jobs:
       if: matrix.platform == 'Android'
       run: appium driver install uiautomator2
 
-    - name: Enable KVM
-      if: matrix.platform == 'Android'
-      run: |
-        echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
-        sudo udevadm control --reload-rules
-        sudo udevadm trigger --name-match=kvm
-
     - name: Start appium server
       run: appium --relaxed-security --log-timestamp --log appium.log &
 
@@ -114,7 +114,7 @@ jobs:
         arch: x86_64
         target: google_apis
         avd-name: ${{ env.DEVICE_NAME }}
-        emulator-boot-timeout: 600
+        emulator-boot-timeout: 420
         emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
         disable-animations: true
         script: |
