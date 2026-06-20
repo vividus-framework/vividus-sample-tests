@@ -2,9 +2,6 @@ name: Mobile Demo Test Run
 
 env:
   DEVICE_NAME: vividus-test-device
-  ANDROID_EMU_ABI: x86
-  ANDROID_EMU_TARGET: android-29
-  ANDROID_EMU_TAG: default
   IOS_DEVICE_TYPE_ID: iPhone 14 Pro Max
 
 on:
@@ -28,12 +25,19 @@ on:
     - '**/ios/**'
     - '.github/workflows/mobile-test-run.yml'
 
+permissions:
+  contents: read
+
 jobs:
   mobile-test-run:
-    runs-on: macos-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        platform: [Android, iOS]
+        include:
+        - platform: Android
+          os: ubuntu-latest
+        - platform: iOS
+          os: macos-latest
       fail-fast: false
 
     steps:
@@ -41,6 +45,13 @@ jobs:
       uses: actions/checkout@v6
       with:
         submodules: recursive
+
+    - name: Enable KVM
+      if: matrix.platform == 'Android'
+      run: |
+        echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+        sudo udevadm control --reload-rules
+        sudo udevadm trigger --name-match=kvm
 
     - name: Cache tests history
       uses: actions/cache@v5
@@ -50,18 +61,6 @@ jobs:
         key: tests-history-cache
         restore-keys: |
           tests-history-cache
-
-    - name: Spin-up Android emulator
-      if: matrix.platform == 'Android'
-      run: |
-        echo "y" | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "system-images;$ANDROID_EMU_TARGET;$ANDROID_EMU_TAG;$ANDROID_EMU_ABI"
-        echo "no" | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -n "$DEVICE_NAME" -k "system-images;$ANDROID_EMU_TARGET;$ANDROID_EMU_TAG;$ANDROID_EMU_ABI" --force
-        echo $ANDROID_HOME/emulator/emulator -list-avds
-        echo "Starting emulator"
-        nohup $ANDROID_HOME/emulator/emulator -avd "$DEVICE_NAME" -no-snapshot -delay-adb > /dev/null 2>&1 &
-        $ANDROID_HOME/platform-tools/adb wait-for-device
-        $ANDROID_HOME/platform-tools/adb devices -l
-        echo "Emulator started"
 
     - name: Spin-up iOS simulator
       if: matrix.platform == 'iOS'
@@ -109,12 +108,21 @@ jobs:
 
     - name: Run Android tests
       if: matrix.platform == 'Android'
-      run: >-
-        ./gradlew runStories
-        -Pvividus.configuration.suites=mobile_app/android
-        -Pvividus.configuration.profiles=mobile_app/local2,mobile_app/android
-        -Pvividus.allure.history-directory=output/history/android
-        -Pvividus.selenium.grid.capabilities.deviceName="$DEVICE_NAME"
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 34
+        arch: x86_64
+        target: google_apis
+        avd-name: ${{ env.DEVICE_NAME }}
+        emulator-boot-timeout: 240
+        emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
+        disable-animations: true
+        script: >-
+          ./gradlew runStories
+          -Pvividus.configuration.suites=mobile_app/android
+          -Pvividus.configuration.profiles=mobile_app/local2,mobile_app/android
+          -Pvividus.allure.history-directory=output/history/android
+          -Pvividus.selenium.grid.capabilities.deviceName="$DEVICE_NAME"
 
     - name: Publish ${{ matrix.platform }} tests report
       if: always()
