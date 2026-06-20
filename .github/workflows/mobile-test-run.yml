@@ -25,6 +25,9 @@ on:
     - '**/ios/**'
     - '.github/workflows/mobile-test-run.yml'
 
+permissions:
+  contents: read
+
 jobs:
   mobile-test-run:
     runs-on: ${{ matrix.os }}
@@ -111,7 +114,7 @@ jobs:
         arch: x86_64
         target: google_apis
         avd-name: ${{ env.DEVICE_NAME }}
-        emulator-boot-timeout: 720
+        emulator-boot-timeout: 600
         emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
         disable-animations: true
         script: |
