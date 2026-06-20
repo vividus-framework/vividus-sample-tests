@@ -1,6 +1,6 @@
 ---
 name: generate-vividus-web-tests
-description: 'Generate VIVIDUS test automation stories from test cases for web applications. Creates executable .story files following VIVIDUS syntax and project conventions. Use when: automating web test cases, converting manual tests to VIVIDUS stories, generating web UI test automation.'
+description: 'Generate VIVIDUS test automation stories from test cases for web applications. Creates executable .story files following VIVIDUS syntax and project conventions. Requires Playwright MCP and VIVIDUS MCP servers to be connected. Use when: automating web test cases, converting manual tests to VIVIDUS stories, generating web UI test automation.'
 argument-hint: 'Enter your test case...'
 ---
 

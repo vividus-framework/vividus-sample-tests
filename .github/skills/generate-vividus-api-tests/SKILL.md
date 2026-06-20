@@ -1,6 +1,6 @@
 ---
 name: generate-vividus-api-tests
-description: 'Generate VIVIDUS API test automation stories from OpenAPI/Swagger specifications. Creates executable .story files for API endpoints following VIVIDUS syntax and project conventions. Use when: creating API tests, automating REST endpoints, generating test stories from Swagger docs.'
+description: 'Generate VIVIDUS API test automation stories from OpenAPI/Swagger specifications. Creates executable .story files for API endpoints following VIVIDUS syntax and project conventions. Requires VIVIDUS MCP server to be connected. Use when: creating API tests, automating REST endpoints, generating test stories from Swagger docs.'
 argument-hint: 'Provide OpenAPI specification file path or content...'
 ---
 
