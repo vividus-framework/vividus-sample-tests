@@ -116,7 +116,7 @@ VIVIDUS capabilities and project discovery:
 1. **Locators:** Follow the **Locator Stability Hierarchy** below to ensure stability.
 2. **Expressions:** Use VIVIDUS expressions instead of hardcoded dynamic values - see **Use VIVIDUS Expressions Instead of Hardcoded Values** below.
 3. **Data Tables:** Use Examples blocks **only** when a scenario must run with multiple distinct data sets. Do NOT use Examples for a single data set - inline values or expressions directly.
-4. **Composite Steps:** Propose new composite steps for repeated action patterns.
+4. **Composite Steps:** Create new composite steps for repeated action patterns.
 5. **Contextual Steps:** When using parent element context, ensure child locators are relative.
 
 ### Use VIVIDUS Expressions Instead of Hardcoded Values
