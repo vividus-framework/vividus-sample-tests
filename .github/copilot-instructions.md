@@ -1,6 +1,6 @@
 # VIVIDUS Sample Tests
 
-Gradle-based test automation project using the VIVIDUS framework (BDD/JBehave). All test logic lives in `.story`, `.steps`, `.table`, and `.properties` files under `src/main/resources/`. There is no Java source — do not create `.java` files.
+Gradle-based test automation project using the VIVIDUS tool. All test logic lives in `.story`, `.steps`, `.table`, and `.properties` files under `src/main/resources/`. There is no Java source — do not create `.java` files.
 
 ## Bootstrap
 
@@ -28,7 +28,7 @@ src/main/resources/
   steps/**/*.steps                         # Composite step definitions
   known-issues.json                        # Known issue patterns
   overriding.properties                    # Local overrides (e.g. configuration-set.active=web-app)
-build.gradle                               # VIVIDUS BOM + plugin dependencies
+build.gradle                               # VIVIDUS dependencies
 .github/workflows/                         # CI workflows (see CI section)
 ```
 
@@ -43,9 +43,9 @@ Story and step file locations per suite are discovered by:
 ```bash
 ./gradlew runStories -Pvividus.configuration-set.active=rest-api    # REST API (no browser)
 ./gradlew runStories -Pvividus.configuration-set.active=web-app     # Web UI (requires Chrome)
-./gradlew runStories -Pvividus.configuration-set.active=ios-app     # iOS (macOS + Appium + simulator)
-./gradlew runStories -Pvividus.configuration-set.active=android-app # Android (macOS + Appium + emulator)
-./gradlew runStories -Pvividus.configuration-set.active=electron    # Electron (VS Code is a system under test)
+./gradlew runStories -Pvividus.configuration-set.active=ios-app     # iOS (Appium + simulator)
+./gradlew runStories -Pvividus.configuration-set.active=android-app # Android (Appium + emulator)
+./gradlew runStories -Pvividus.configuration-set.active=electron    # Electron-based application (VS Code is a system under test)
 ```
 
 ```bash
