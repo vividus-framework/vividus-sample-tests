@@ -1,0 +1,72 @@
+import groovy.json.JsonSlurper
+
+// Generates per-tool Agent Skill files (Claude Code, GitHub Copilot) from a single
+// set of shared guideline documents. The shared markdown is the source of truth for the
+// skill body; skills.json supplies per-tool frontmatter. See shared-ai-guidelines/skills.json.
+
+ext.skillsManifestFile = file("${rootDir}/shared-ai-guidelines/skills.json")
+
+// Build the full SKILL.md content (frontmatter + generated header + inlined body) for one skill/target.
+ext.renderSkill = { Map skill, String targetKey, Map target, Map manifest ->
+    def sharedDir = manifest.sharedDir
+    def guidelines = file("${rootDir}/${sharedDir}/${skill.guidelines}")
+    if (!guidelines.exists()) {
+        throw new GradleException("Guidelines file not found for skill '${skill.id}': ${guidelines}")
+    }
+
+    // Body: inline the shared guidelines, applying this target's literal replacements
+    // (e.g. tool-name differences between Claude and Copilot).
+    def body = guidelines.text
+    (target.replacements ?: [:]).each { from, to -> body = body.replace(from as String, to as String) }
+
+    // Frontmatter: name + description are shared; remaining fields are per-tool values from skills.json.
+    def platform = (skill[targetKey] ?: [:]) as Map
+    def fm = new StringBuilder('---\n')
+    target.frontmatter.each { field ->
+        if (field == 'name') {
+            fm << "name: ${skill.id}\n"
+        } else if (field == 'description') {
+            fm << "description: '${(skill.description as String).replace("'", "''")}'\n"
+        } else {
+            def value = platform[field]
+            if (value != null) {
+                fm << "${field}: '${(value as String).replace("'", "''")}'\n"
+            }
+        }
+    }
+    fm << '---\n\n'
+
+    return fm.toString() + body.trim() + '\n'
+}
+
+// targetFilter: null/empty generates every target; otherwise a comma-separated subset (e.g. "claude" or "claude,copilot").
+ext.processSkills = { String targetFilter ->
+    def manifest = new JsonSlurper().parse(skillsManifestFile) as Map
+    def targets = manifest.targets
+    if (targetFilter?.trim()) {
+        def requested = targetFilter.split(',')*.trim().findAll { it }
+        def unknown = requested.findAll { !manifest.targets.containsKey(it) }
+        if (unknown) {
+            throw new GradleException(
+                "Unknown target(s): ${unknown.join(', ')}. Available: ${manifest.targets.keySet().join(', ')}")
+        }
+        targets = manifest.targets.subMap(requested)
+    }
+    manifest.skills.each { skill ->
+        targets.each { targetKey, target ->
+            def content = renderSkill(skill as Map, targetKey as String, target as Map, manifest)
+            def outFile = file("${rootDir}/${target.outDir}/${skill.id}/SKILL.md")
+            outFile.parentFile.mkdirs()
+            outFile.text = content
+            logger.lifecycle("Generated ${rootProject.relativePath(outFile)}")
+        }
+    }
+}
+
+tasks.register('generateSkills') {
+    group = 'documentation'
+    description = 'Generate per-tool skill files from shared-ai-guidelines. Use -Ptarget=claude|copilot to limit; omit for all.'
+    inputs.file skillsManifestFile
+    inputs.dir file("${rootDir}/shared-ai-guidelines")
+    doLast { processSkills(project.findProperty('target') as String) }
+}

@@ -4,6 +4,7 @@ group = 'org.vividus.demo'
 ext.buildSystemPath = "${System.env.VIVIDUS_BUILD_SYSTEM_HOME?:buildSystemRootDir}/${buildSystemVersion}"
 
 apply from: "${buildSystemPath}/vividus-test-project.gradle"
+apply from: "${rootDir}/skills.gradle"
 
 dependencies {
     implementation platform('org.vividus:vividus-bom:0.6.18')
