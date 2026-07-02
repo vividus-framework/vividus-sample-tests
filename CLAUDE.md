@@ -1,4 +1,4 @@
-# VIVIDUS Sample Tests
+# CLAUDE.md
 
 Gradle-based test automation project using the VIVIDUS tool. All test logic lives in `.story`, `.steps`, `.table`, and `.properties` files under `src/main/resources/`. There is no Java source — do not create `.java` files.
 
