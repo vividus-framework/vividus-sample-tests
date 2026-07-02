@@ -1,0 +1,22 @@
+{
+  "sharedDir": "shared-ai-guidelines",
+  "targets": {
+    "claude": {
+      "outDir": ".claude/skills",
+      "frontmatter": ["name", "description", "allowed-tools"]
+    },
+    "copilot": {
+      "outDir": ".github/skills",
+      "frontmatter": ["name", "description", "argument-hint"]
+    }
+  },
+  "skills": [
+    {
+      "id": "generate-vividus-web-tests",
+      "guidelines": "generate-vividus-web-tests-guidelines.md",
+      "description": "Generate VIVIDUS test automation stories from test cases for web applications. Creates executable .story files following VIVIDUS syntax and project conventions. Requires Playwright MCP and VIVIDUS MCP servers to be connected. Use when: automating web test cases, converting manual tests to VIVIDUS stories, generating web UI test automation.",
+      "claude": { "allowed-tools": "Read, Write, Glob, Grep, Bash, mcp__playwright, mcp__vividus, mcp__context7" },
+      "copilot": { "argument-hint": "Enter your test case..." }
+    }
+  ]
+}
